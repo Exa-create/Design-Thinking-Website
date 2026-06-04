@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototype 2 — ESP32-C3 Zero Case</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">ESP<br>32</div>
+      <div class="nav-logo-text">Case Design<br>Journey</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prototype1.html">Prototype 1</a></li>
+      <li><a href="prototype2.html" class="active">Prototype 2</a></li>
+      <li><a href="prototype3.html">Prototype 3</a></li>
+      <li><a href="final.html">Final Design</a></li>
+    </ul>
+  </nav>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged photo" />
+  </div>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <span class="page-tag">Second Iteration — 30 May 2026</span>
+      <h1>Prototype <span>2</span></h1>
+      <p>A significantly redesigned two-piece case introducing a leg-and-hole lid connection system. While print quality and orientation were corrected, new issues with the lid joining system and button hole placement were discovered.</p>
+      <div class="stat-row">
+        <div class="stat-pill"><span class="label">Date</span><span class="value">30/05/2026</span></div>
+        <div class="stat-pill"><span class="label">Print Time</span><span class="value">20m 01s</span></div>
+        <div class="stat-pill"><span class="label">Material</span><span class="value">4.25g PLA</span></div>
+        <div class="stat-pill"><span class="label">Cost</span><span class="value">$0.13</span></div>
+        <div class="stat-pill"><span class="label">Result</span><span class="value"><span class="result-badge fail">✗ Fail</span></span></div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <h2 class="section-title">Photos</h2>
+    <div class="photo-grid">
+      <img src="images/p2_1.jpg" alt="Prototype 2 — top and bottom halves laid out separately" onclick="openLightbox(this.src)" />
+      <img src="images/p2_2.jpg" alt="Prototype 2 — USB-C port visible from front of base" onclick="openLightbox(this.src)" />
+      <img src="images/p2_3.jpg" alt="Prototype 2 — board inside base showing misalignment" onclick="openLightbox(this.src)" />
+      <img src="images/p2_4.jpg" alt="Prototype 2 — side view showing board not fully enclosed" onclick="openLightbox(this.src)" />
+    </div>
+
+    <!-- DESCRIPTION -->
+    <h2 class="section-title">Description</h2>
+    <div class="desc-block">
+      Prototype 2 was a full redesign addressing the major issues found in Prototype 1. The case was split into two parts: a base tray and a separate lid. A leg-and-hole joining system was introduced — the lid featured small legs designed to insert into corresponding holes in the base to hold the case closed. The print orientation was corrected, and overall dimensions were increased to better accommodate the board. However, the bottom half still had incorrect internal dimensions — the ESP32-C3 Zero was a tight and misaligned fit, and one side required sanding to insert the board. The leg-and-hole joining system failed because both the legs and holes were printed at the same size, preventing them from connecting. Button holes were also incorrectly positioned, stopping the chip from sitting flat and making the buttons inaccessible. After reviewing a classmate's design, a decision was made to completely rethink the lid system for Prototype 3.
+    </div>
+
+    <!-- CHANGES FROM P1 -->
+    <h2 class="section-title">Changes from Prototype 1</h2>
+    <div class="improvements-box" style="border-left-color: var(--text-muted);">
+      <h3 style="color: var(--text-muted);">→ What was changed and why</h3>
+      <ul>
+        <li>Switched to a two-part design (base + lid) to allow the board to be enclosed</li>
+        <li>Corrected print orientation — walls are now structurally sound</li>
+        <li>Increased internal dimensions to try to fit the board</li>
+        <li>Added leg-and-hole joining system to connect the two halves</li>
+        <li>Added button hole openings (positions were incorrect however)</li>
+        <li>Walls thickened to prevent snapping seen in Prototype 1</li>
+      </ul>
+    </div>
+
+    <!-- PROS / CONS -->
+    <h2 class="section-title">Pros &amp; Cons</h2>
+    <div class="pros-cons">
+      <div class="pros-box">
+        <h3>✓ Pros</h3>
+        <ul>
+          <li>Two-piece design is a major step forward from Prototype 1</li>
+          <li>Correct print orientation — no structural snapping</li>
+          <li>USB-C port is now clearly accessible from the front</li>
+          <li>Walls are thicker and more durable</li>
+          <li>Button hole openings were included (even if wrongly placed)</li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <h3>✗ Cons / Problems</h3>
+        <ul>
+          <li>Bottom half internal dimensions still incorrect — board required sanding to fit</li>
+          <li>Lid leg-and-hole system failed — legs and holes same size, won't connect</li>
+          <li>Button holes incorrectly positioned — chip couldn't sit properly</li>
+          <li>Board sits misaligned inside the base</li>
+          <li>Still no ventilation holes added</li>
+          <li>Lid system requires a complete rethink</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PLANNED IMPROVEMENTS -->
+    <h2 class="section-title">Planned Improvements for Prototype 3</h2>
+    <div class="improvements-box">
+      <h3>→ Changes to implement</h3>
+      <ul>
+        <li>Completely redesign the lid closure — move to a thin clip-based system reviewed from a classmate's design</li>
+        <li>Adjust internal dimensions for a correct board fit with no sanding required</li>
+        <li>Reposition button cutouts to align correctly with the BOOT and RST buttons</li>
+        <li>Add ventilation slots to the sides of the case for airflow</li>
+        <li>Complete a full design brainstorm before starting Prototype 3 CAD work</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    100376427 · Hasan Kandemir · ESP32-C3 Zero Protective Case · ICT30120 Certificate III in Information Technology
+  </footer>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototype 3 — ESP32-C3 Zero Case</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">ESP<br>32</div>
+      <div class="nav-logo-text">Case Design<br>Journey</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prototype1.html">Prototype 1</a></li>
+      <li><a href="prototype2.html">Prototype 2</a></li>
+      <li><a href="prototype3.html" class="active">Prototype 3</a></li>
+      <li><a href="final.html">Final Design</a></li>
+    </ul>
+  </nav>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged photo" />
+  </div>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <span class="page-tag">Third Iteration — 31 May 2026</span>
+      <h1>Prototype <span>3</span></h1>
+      <p>A significant improvement over both previous prototypes. The board fits correctly, the leg-and-hole lid system works for the first time, ventilation slots are present — but one issue remains before the final design can be confirmed.</p>
+      <div class="stat-row">
+        <div class="stat-pill"><span class="label">Date</span><span class="value">31/05/2026</span></div>
+        <div class="stat-pill"><span class="label">Print Time</span><span class="value">28m 49s</span></div>
+        <div class="stat-pill"><span class="label">Material</span><span class="value">6.19g PLA</span></div>
+        <div class="stat-pill"><span class="label">Cost</span><span class="value">$0.19</span></div>
+        <div class="stat-pill"><span class="label">Result</span><span class="value"><span class="result-badge warn">⚠ Needs Improvement</span></span></div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <h2 class="section-title">Photos</h2>
+    <div class="photo-grid">
+      <img src="images/p3_1.jpg" alt="Prototype 3 — base and lid laid out separately showing ventilation slots and leg system" onclick="openLightbox(this.src)" />
+      <img src="images/p3_2.jpg" alt="Prototype 3 — ESP32-C3 Zero board sitting correctly in the base with proper clearance" onclick="openLightbox(this.src)" />
+      <img src="images/p3_3.jpg" alt="Prototype 3 — assembled view showing lid nearly closing with visible gap" onclick="openLightbox(this.src)" />
+      <img src="images/p3_4.jpg" alt="Prototype 3 — side view showing the gap between lid and base due to insufficient interior recess" onclick="openLightbox(this.src)" />
+    </div>
+
+    <!-- DESCRIPTION -->
+    <h2 class="section-title">Description</h2>
+    <div class="desc-block">
+      Prototype 3 showed a significant improvement over both previous prototypes. Following a full design brainstorm and review of a classmate's approach, the entire lid and closure system was rethought. The bottom half printed successfully with correct internal dimensions — the ESP32-C3 Zero sits securely with a small amount of clearance, providing a comfortable fit without being too loose. The GPIO pins protrude through the openings correctly with no obstruction. Ventilation slots were added to the sides of both the base and the lid, providing airflow and cooling for the board during use. The leg-and-hole connection system for the top half also worked correctly for the first time — the legs fitting into the holes smoothly without sticking or requiring force. The only remaining issue identified was that the interior recess of the top half was not hollowed out enough, causing the lid to press against the top of the chip and prevent the case from closing fully. This single fix is all that is required before the final design can be produced.
+    </div>
+
+    <!-- CHANGES FROM P2 -->
+    <h2 class="section-title">Changes from Prototype 2</h2>
+    <div class="improvements-box" style="border-left-color: var(--text-muted);">
+      <h3 style="color: var(--text-muted);">→ What was changed and why</h3>
+      <ul>
+        <li>Full design brainstorm completed before starting CAD — informed better design decisions</li>
+        <li>Internal dimensions corrected — board now fits with comfortable clearance, no sanding</li>
+        <li>Lid interior recess redesigned — though still not deep enough, the concept is correct</li>
+        <li>Leg-and-hole system fixed — legs are now slightly smaller than holes so they connect smoothly</li>
+        <li>Ventilation slots added to sides of base and lid for airflow</li>
+        <li>Button cutout positioning reviewed and improved</li>
+      </ul>
+    </div>
+
+    <!-- PROS / CONS -->
+    <h2 class="section-title">Pros &amp; Cons</h2>
+    <div class="pros-cons">
+      <div class="pros-box">
+        <h3>✓ Pros</h3>
+        <ul>
+          <li>Board fits correctly with proper clearance — no sanding needed</li>
+          <li>GPIO pins protrude through slots with no obstruction</li>
+          <li>Leg-and-hole lid system works — fits smoothly without force</li>
+          <li>Ventilation slots present on sides for airflow</li>
+          <li>Most complete and functional prototype so far</li>
+          <li>USB-C port accessible through opening</li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <h3>✗ Cons / Remaining Issue</h3>
+        <ul>
+          <li>Interior recess of top half not hollowed out enough</li>
+          <li>Lid presses against top of chip — case cannot close fully</li>
+          <li>Small visible gap between top and bottom halves when assembled</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PLANNED IMPROVEMENTS -->
+    <h2 class="section-title">Planned Improvements for Final Design</h2>
+    <div class="improvements-box">
+      <h3>→ Changes to implement</h3>
+      <ul>
+        <li>Increase the depth of the interior recess in the top half so it clears the top of the ESP32-C3 Zero chip</li>
+        <li>Verify all other dimensions are correct before printing</li>
+        <li>Test closure — lid should sit flush against the base with no gap</li>
+        <li>Confirm ventilation slots, pin openings, USB-C cutout and button cutouts all pass testing criteria</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    100376427 · Hasan Kandemir · ESP32-C3 Zero Protective Case · ICT30120 Certificate III in Information Technology
+  </footer>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prototype 1 — ESP32-C3 Zero Case</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">ESP<br>32</div>
+      <div class="nav-logo-text">Case Design<br>Journey</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="prototype1.html" class="active">Prototype 1</a></li>
+      <li><a href="prototype2.html">Prototype 2</a></li>
+      <li><a href="prototype3.html">Prototype 3</a></li>
+      <li><a href="final.html">Final Design</a></li>
+    </ul>
+  </nav>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged photo" />
+  </div>
+
+  <main class="page-wrap">
+
+    <!-- HERO -->
+    <div class="page-hero">
+      <span class="page-tag">First Iteration — 26 May 2026</span>
+      <h1>Prototype <span>1</span></h1>
+      <p>The first attempt at a protective case for the ESP32-C3 Zero. Printed in orange PLA, this prototype established the basic concept but revealed several critical dimensional and structural issues.</p>
+      <div class="stat-row">
+        <div class="stat-pill"><span class="label">Date</span><span class="value">26/05/2026</span></div>
+        <div class="stat-pill"><span class="label">Print Time</span><span class="value">12m 57s</span></div>
+        <div class="stat-pill"><span class="label">Material</span><span class="value">3.02g PLA</span></div>
+        <div class="stat-pill"><span class="label">Cost</span><span class="value">$0.09</span></div>
+        <div class="stat-pill"><span class="label">Result</span><span class="value"><span class="result-badge fail">✗ Fail</span></span></div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <h2 class="section-title">Photos</h2>
+    <div class="photo-grid">
+      <img src="images/p1_1.jpg" alt="Prototype 1 overview — broken wall and board next to case" onclick="openLightbox(this.src)" />
+      <img src="images/p1_2.jpg" alt="Prototype 1 — showing GPIO pins not fitting through slots" onclick="openLightbox(this.src)" />
+      <img src="images/p1_3.jpg" alt="Prototype 1 — board sitting inside bottom half, wall snapped" onclick="openLightbox(this.src)" />
+      <img src="images/p1_4.jpg" alt="Prototype 1 — parts laid out: bottom half, broken wall strip, and board" onclick="openLightbox(this.src)" />
+    </div>
+
+    <!-- DESCRIPTION -->
+    <h2 class="section-title">Description</h2>
+    <div class="desc-block">
+      Prototype 1 was a basic single-piece tray design, printed in orange PLA. The concept was to create a simple enclosure for the ESP32-C3 Zero with a USB-C port opening cut into one side. The STL was printed in the wrong orientation, which contributed to the walls being structurally weak. Internal dimensions were calculated from rough measurements and did not account for enough clearance, resulting in the board not fitting. The pin slot openings along the sides were too narrow for the GPIO pins to pass through. During removal from the print bed, one of the side walls snapped off entirely — visible in the photos as the long orange strip separate from the main body.
+    </div>
+
+    <!-- PROS / CONS -->
+    <h2 class="section-title">Pros &amp; Cons</h2>
+    <div class="pros-cons">
+      <div class="pros-box">
+        <h3>✓ Pros</h3>
+        <ul>
+          <li>Established the basic concept of a tray-style enclosure</li>
+          <li>USB-C port opening was included in the design</li>
+          <li>Fast print time (under 13 minutes) — good for iteration</li>
+          <li>Low material cost at $0.09</li>
+        </ul>
+      </div>
+      <div class="cons-box">
+        <h3>✗ Cons / Problems</h3>
+        <ul>
+          <li>Printed in the wrong orientation — weakened walls</li>
+          <li>Internal dimensions too small — board did not fit</li>
+          <li>Pin slot openings too narrow for GPIO pins to pass through</li>
+          <li>Walls and locking clips too thin — one wall snapped off during removal</li>
+          <li>No ventilation holes included in the design</li>
+          <li>No lid or closure mechanism</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PLANNED IMPROVEMENTS -->
+    <h2 class="section-title">Planned Improvements for Prototype 2</h2>
+    <div class="improvements-box">
+      <h3>→ Changes to implement</h3>
+      <ul>
+        <li>Increase overall internal dimensions to fit the ESP32-C3 Zero board correctly</li>
+        <li>Thicken the walls and structural elements to prevent snapping</li>
+        <li>Correct the pin slot size so GPIO pins can pass through freely</li>
+        <li>Print in the correct orientation for better structural integrity</li>
+        <li>Begin designing a lid or closure mechanism</li>
+        <li>Add ventilation holes or slots for airflow</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    100376427 · Hasan Kandemir · ESP32-C3 Zero Protective Case · ICT30120 Certificate III in Information Technology
+  </footer>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>
