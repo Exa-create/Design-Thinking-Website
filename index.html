@@ -3,27 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="ESP32-C3 Zero Protective Case — A 3D printing design journey by Hasan Kandemir, ICT30120 Cert III IT." />
+<meta name="description" content="ESP32-C3 Zero Protective Case — A 3D printing design journey by Hasan Kandemir." />
 <meta name="author" content="Hasan Kandemir" />
-<meta name="theme-color" content="#012f35" />
+<meta name="theme-color" content="#0d1117" />
 <title>ESP32-C3 Case Project // Hasan Kandemir</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" />
 <link rel="stylesheet" href="style.css" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23006d77'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-weight='900' font-size='28' fill='%23012f35'%3EH%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f97316'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='monospace' font-weight='900' font-size='30' fill='%230d1117'%3EH%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
 
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-<!-- floating decorative shapes -->
 <div class="floating-shapes" aria-hidden="true">
-  <div class="shape"></div>
-  <div class="shape"></div>
-  <div class="shape"></div>
-  <div class="shape"></div>
-  <div class="shape"></div>
+  <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
 </div>
 
 <!-- =================== NAVIGATION =================== -->
@@ -51,184 +46,171 @@
 
 <main>
 
-<!-- =================== HERO =================== -->
+<!-- =================== HERO (CONDENSED) =================== -->
 <section class="hero">
   <div class="container">
-    <div class="hero-content">
-      <span class="hero-tag"><span class="dot"></span> Live // 4 prototypes documented</span>
-      <h1>Designing a <span class="gradient">protective case</span> for the ESP32-C3 Zero.</h1>
-      <p class="lede">
-        A documented iteration journey — from "wait, why won't it fit" to a working final prototype.
-        Three failed prints, one that nearly worked, lessons in tolerance, ventilation, and humility. 🛠️
-      </p>
-      <div class="hero-actions">
-        <a href="#prototypes" class="btn btn-primary">View prototypes <span class="arrow">→</span></a>
-        <a href="#comparison" class="btn btn-ghost">Comparison table</a>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="hero-tag"><span class="dot"></span> Live // 4 prototypes documented</span>
+        <h1>Designing a <span class="gradient">protective case</span> for the ESP32-C3 Zero.</h1>
+        <p class="lede">
+          Three failed prints, one that nearly worked, and a final design on the bed.
+          Documented iteration — from "why won't it fit" to a working case. 🛠️
+        </p>
+        <div class="hero-actions">
+          <a href="#prototypes" class="btn btn-primary">View prototypes <span class="arrow">→</span></a>
+          <a href="#comparison" class="btn btn-ghost">Comparison</a>
+        </div>
       </div>
 
-      <!-- Terminal personality block -->
-      <div class="terminal" style="margin-top: var(--s-4); max-width: 560px;">
+      <!-- Terminal block on the right side -->
+      <div class="terminal">
         <div class="terminal-bar">
           <span class="dot-r"></span><span class="dot-r"></span><span class="dot-r"></span>
-          <span class="term-title">~/projects/esp32-case</span>
+          <span class="term-title">~/esp32-case/status</span>
         </div>
         <div class="terminal-body">
           <div class="term-prompt">cat status.txt</div>
-          <div class="term-output">Prototype 1 ........ <span style="color:var(--fail)">FAIL</span></div>
-          <div class="term-output">Prototype 2 ........ <span style="color:var(--fail)">FAIL</span></div>
-          <div class="term-output">Prototype 3 ........ <span style="color:var(--warn)">NEEDS IMPROVEMENT</span></div>
-          <div class="term-output">Final design ....... <span style="color:var(--accent-soft)">IN PROGRESS</span><span class="cursor-blink"></span></div>
+          <div class="term-output">P1 ......... <span style="color:var(--fail)">FAIL</span></div>
+          <div class="term-output">P2 ......... <span style="color:var(--fail)">FAIL</span></div>
+          <div class="term-output">P3 ......... <span style="color:var(--warn)">NEEDS WORK</span></div>
+          <div class="term-output">Final ...... <span style="color:var(--accent)">IN PROGRESS</span><span class="cursor-blink"></span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- =================== BENTO OVERVIEW =================== -->
-<section id="overview">
+<!-- =================== OVERVIEW + INTRO (BENTO) =================== -->
+<section id="overview" style="padding-top: 0;">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">overview</span>
-      <h2 class="section-title">The project at a glance</h2>
-      <p class="section-sub">Quick stats, the goal, the constraints, and how each iteration scored.</p>
-    </div>
-
     <div class="bento">
 
-      <!-- Big stat — total prints -->
-      <div class="bento-item bento-span-2 reveal">
-        <div class="bento-eyebrow">Total prints</div>
+      <!-- Project intro -->
+      <div class="bento-item bento-c8 reveal">
+        <div class="bento-eyebrow">project overview</div>
+        <h3>The goal — a snug, vented, snap-fit enclosure</h3>
+        <p style="margin-bottom: 0.5rem;">A 3D-printed protective case for the ESP32-C3 Zero microcontroller. Must fit the board exactly, protect exposed GPIO pins and the USB-C port, provide ventilation for heat dissipation, and include a removable lid for board access.</p>
+        <p>Designed iteratively across four prototypes — each one teaching us what didn't work on the previous. The final design applies every lesson learned: corrected tolerances, working snap-fit lid, ventilation slots, and proper button alignment.</p>
+      </div>
+
+      <!-- Big stat -->
+      <div class="bento-item bento-c4 reveal">
+        <div class="bento-eyebrow">iterations</div>
         <div class="bento-big-number">4</div>
-        <p>iterations across 8 days</p>
+        <p>prototypes printed across 8 days</p>
       </div>
 
       <!-- Cost -->
-      <div class="bento-item bento-span-2 reveal">
-        <div class="bento-eyebrow">Filament cost</div>
+      <div class="bento-item bento-c3 reveal">
+        <div class="bento-eyebrow">filament</div>
         <div class="bento-big-number">$0.41</div>
         <p>across all 3 failed prints</p>
       </div>
 
       <!-- Print time -->
-      <div class="bento-item bento-span-2 reveal">
-        <div class="bento-eyebrow">Total print time</div>
+      <div class="bento-item bento-c3 reveal">
+        <div class="bento-eyebrow">print time</div>
         <div class="bento-big-number">61m</div>
-        <p>47 seconds, to be precise</p>
-      </div>
-
-      <!-- Goal -->
-      <div class="bento-item bento-span-3 reveal">
-        <div class="bento-eyebrow">The goal</div>
-        <h3>A snug-fit, vented, removable lid case</h3>
-        <p>For an ESP32-C3 Zero microcontroller — exposed pins, USB-C access, ventilation, drop protection. Classroom and workshop-ready.</p>
-        <a href="#prototypes" class="bento-link">See the iterations →</a>
-      </div>
-
-      <!-- Constraints -->
-      <div class="bento-item bento-span-3 reveal">
-        <div class="bento-eyebrow">Constraints</div>
-        <h3>Wall thickness vs. fitment vs. ventilation</h3>
-        <p>Three competing priorities — every iteration traded off one to improve another. The final design balances all three.</p>
-        <a href="prototype3.html" class="bento-link">P3 breakdown →</a>
-      </div>
-
-      <!-- Tools used -->
-      <div class="bento-item bento-span-3 reveal">
-        <div class="bento-eyebrow">Stack</div>
-        <h3>CAD → Slicer → Printer → Test</h3>
-        <p>Fusion 360 for the model. Slicer of choice for layer settings. FDM 3D printer. Real ESP32-C3 Zero board for fitment testing.</p>
+        <p>47 seconds total</p>
       </div>
 
       <!-- Status -->
-      <div class="bento-item bento-span-3 reveal">
-        <div class="bento-eyebrow">Current status</div>
-        <h3>P3 works (almost). Final coming.</h3>
-        <p>The third prototype hits all key requirements but the lid recess needs depth tuning. Final design will fix that.</p>
-        <a href="final.html" class="bento-link">Final preview →</a>
+      <div class="bento-item bento-c3 reveal">
+        <div class="bento-eyebrow">progress</div>
+        <div class="bento-big-number">75%</div>
+        <p>3 / 4 prototypes complete</p>
       </div>
 
+      <!-- Stack -->
+      <div class="bento-item bento-c3 reveal">
+        <div class="bento-eyebrow">stack</div>
+        <h3 style="font-size: 0.95rem; margin-top: 0.25rem;">CAD → Slice → Print → Test</h3>
+        <p style="font-size: 0.8rem;">Repeat as needed.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- =================== PROTOTYPES TIMELINE =================== -->
-<section id="prototypes">
+<!-- =================== PROTOTYPES (HORIZONTAL CARDS) =================== -->
+<section id="prototypes" class="section-tight">
   <div class="container">
     <div class="section-head reveal">
       <span class="section-eyebrow">the journey</span>
-      <h2 class="section-title">Four prototypes, four lessons.</h2>
-      <p class="section-sub">Each iteration documented with date, print time, material cost, and what we learned.</p>
+      <h2 class="section-title">Four prototypes, four lessons</h2>
+      <p class="section-sub">Click any card for the full breakdown — photos, pros/cons, and what we changed next.</p>
     </div>
 
-    <div class="timeline">
-
+    <div class="proto-grid">
       <!-- P1 -->
-      <div class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <article class="tl-card">
-          <div class="tl-head">
-            <h3>Prototype 1 — The "Oh, that's how thin 1mm is" moment</h3>
-            <span class="badge badge-fail">Fail</span>
-          </div>
-          <p class="tl-meta">26 / 05 / 2026 · 12m 57s · 3.02g · $0.09</p>
-          <p>Wrong print orientation, walls too thin and snapped instantly. Board didn't fit. Pin slots too small. No ventilation. No lid. Beautiful disaster.</p>
-          <a href="prototype1.html" class="bento-link">Read full breakdown →</a>
-        </article>
-      </div>
+      <a href="prototype1.html" class="proto-card reveal">
+        <div class="proto-num">prototype 01</div>
+        <h3>The brave little disaster</h3>
+        <div class="proto-meta">
+          <span>📅 26/05/2026 · 12m 57s</span>
+          <span>🧵 3.02g · $0.09</span>
+        </div>
+        <p>Walls snapped, board didn't fit, no lid, no ventilation. Disaster — but a useful one.</p>
+        <div class="proto-footer">
+          <span class="badge badge-fail">Fail</span>
+          <span class="bento-link">view →</span>
+        </div>
+      </a>
 
       <!-- P2 -->
-      <div class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <article class="tl-card">
-          <div class="tl-head">
-            <h3>Prototype 2 — Two-piece design, same-size mistake</h3>
-            <span class="badge badge-fail">Fail</span>
-          </div>
-          <p class="tl-meta">01 / 06 / 2026 · 20m 01s · 4.25g · $0.13</p>
-          <p>Introduced a two-piece design with a leg-and-hole lid system. Made the legs and holes the same size — they didn't snap, they just slid. Button holes in wrong position. Board still misaligned. No ventilation.</p>
-          <a href="prototype2.html" class="bento-link">Read full breakdown →</a>
-        </article>
-      </div>
+      <a href="prototype2.html" class="proto-card reveal">
+        <div class="proto-num">prototype 02</div>
+        <h3>Same-size mistake</h3>
+        <div class="proto-meta">
+          <span>📅 01/06/2026 · 20m 01s</span>
+          <span>🧵 4.25g · $0.13</span>
+        </div>
+        <p>Two-piece design. Lid legs and holes were exactly the same size — no grip. Buttons misaligned.</p>
+        <div class="proto-footer">
+          <span class="badge badge-fail">Fail</span>
+          <span class="bento-link">view →</span>
+        </div>
+      </a>
 
       <!-- P3 -->
-      <div class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <article class="tl-card">
-          <div class="tl-head">
-            <h3>Prototype 3 — It... almost works.</h3>
-            <span class="badge badge-warn">Needs Improvement</span>
-          </div>
-          <p class="tl-meta">02 / 06 / 2026 · 28m 49s · 6.19g · $0.19</p>
-          <p>Board fits correctly. Leg-and-hole lid system actually clips. Ventilation slots added. Pins accessible. One remaining issue: the lid's interior recess isn't deep enough — it can't close flush.</p>
-          <a href="prototype3.html" class="bento-link">Read full breakdown →</a>
-        </article>
-      </div>
+      <a href="prototype3.html" class="proto-card reveal">
+        <div class="proto-num">prototype 03</div>
+        <h3>It almost works</h3>
+        <div class="proto-meta">
+          <span>📅 02/06/2026 · 28m 49s</span>
+          <span>🧵 6.19g · $0.19</span>
+        </div>
+        <p>Board fits. Lid clips. Vents present. One issue: lid recess too shallow, won't sit flush.</p>
+        <div class="proto-footer">
+          <span class="badge badge-warn">Needs Work</span>
+          <span class="bento-link">view →</span>
+        </div>
+      </a>
 
       <!-- Final -->
-      <div class="tl-item reveal">
-        <span class="tl-dot" aria-hidden="true"></span>
-        <article class="tl-card">
-          <div class="tl-head">
-            <h3>Final Design — Coming soon</h3>
-            <span class="badge badge-pending">In Progress</span>
-          </div>
-          <p class="tl-meta">// awaiting print</p>
-          <p>Lid recess depth tuned. Wall thickness verified. Ventilation pattern finalised. All previous lessons applied. Print scheduled.</p>
-          <a href="final.html" class="bento-link">View placeholder →</a>
-        </article>
-      </div>
-
+      <a href="final.html" class="proto-card reveal">
+        <div class="proto-num">final design</div>
+        <h3>On the print bed</h3>
+        <div class="proto-meta">
+          <span>📅 awaiting print</span>
+          <span>🧵 every lesson applied</span>
+        </div>
+        <p>Lid recess deepened. Tolerances verified. Ventilation finalised. Documentation imminent.</p>
+        <div class="proto-footer">
+          <span class="badge badge-pending">In Progress</span>
+          <span class="bento-link">view →</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- =================== COMPARISON TABLE =================== -->
-<section id="comparison">
+<section id="comparison" class="section-tight">
   <div class="container">
     <div class="section-head reveal">
       <span class="section-eyebrow">side by side</span>
       <h2 class="section-title">Comparison across all prototypes</h2>
-      <p class="section-sub">Required by ICTWEB304 — and genuinely useful for spotting the pattern.</p>
     </div>
 
     <div class="table-wrap reveal">
@@ -236,9 +218,9 @@
         <thead>
           <tr>
             <th scope="col">Criterion</th>
-            <th scope="col">Prototype 1</th>
-            <th scope="col">Prototype 2</th>
-            <th scope="col">Prototype 3</th>
+            <th scope="col">P1</th>
+            <th scope="col">P2</th>
+            <th scope="col">P3</th>
             <th scope="col">Final</th>
           </tr>
         </thead>
@@ -246,15 +228,15 @@
           <tr>
             <td>Board fit / sizing</td>
             <td><span class="badge badge-fail">No</span></td>
-            <td><span class="badge badge-fail">No</span></td>
-            <td><span class="badge badge-pass">Yes</span></td>
+            <td><span class="badge badge-fail">Sanding needed</span></td>
+            <td><span class="badge badge-pass">Fits</span></td>
             <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
             <td>Ventilation</td>
             <td><span class="badge badge-fail">None</span></td>
             <td><span class="badge badge-fail">None</span></td>
-            <td><span class="badge badge-pass">Slots added</span></td>
+            <td><span class="badge badge-pass">Side slots</span></td>
             <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
@@ -267,14 +249,14 @@
           <tr>
             <td>Lid system</td>
             <td>—</td>
-            <td><span class="badge badge-fail">Same-size legs/holes</span></td>
-            <td><span class="badge badge-warn">Clips but won't close flush</span></td>
+            <td><span class="badge badge-fail">Same-size fail</span></td>
+            <td><span class="badge badge-warn">Clips, gap</span></td>
             <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
             <td>Pin / USB-C access</td>
             <td><span class="badge badge-fail">No</span></td>
-            <td><span class="badge badge-fail">Wrong position</span></td>
+            <td><span class="badge badge-fail">Wrong</span></td>
             <td><span class="badge badge-pass">Accessible</span></td>
             <td><span class="badge badge-pending">TBD</span></td>
           </tr>
@@ -296,8 +278,8 @@
             <td>Result</td>
             <td><span class="badge badge-fail">Fail</span></td>
             <td><span class="badge badge-fail">Fail</span></td>
-            <td><span class="badge badge-warn">Needs improvement</span></td>
-            <td><span class="badge badge-pending">In progress</span></td>
+            <td><span class="badge badge-warn">Needs Work</span></td>
+            <td><span class="badge badge-pending">In Progress</span></td>
           </tr>
         </tbody>
       </table>
@@ -305,62 +287,73 @@
   </div>
 </section>
 
-<!-- =================== TEAM =================== -->
-<section id="team">
+<!-- =================== TEAM + SITEMAP (COMBINED ROW) =================== -->
+<section class="section-tight">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">credits</span>
-      <h2 class="section-title">Team</h2>
-      <p class="section-sub">This is a solo build for the assessment — but if there were collaborators, here's where they'd live.</p>
-    </div>
+    <div class="combo-row">
 
-    <div class="team reveal">
-      <div class="team-card">
-        <div class="team-avatar" aria-hidden="true">HK</div>
-        <h4>Hasan Kandemir</h4>
-        <p class="role">Designer · Developer · Print Tech</p>
+      <!-- Team -->
+      <div>
+        <div class="section-head reveal" style="margin-bottom: var(--s-2);">
+          <span class="section-eyebrow">team</span>
+          <h2 class="section-title" style="font-size: 1.4rem;">The crew</h2>
+        </div>
+        <div class="team reveal">
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">HK</div>
+            <h4>Hasan Kandemir</h4>
+            <p class="role">Team Coordinator</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">JP</div>
+            <h4>Jeremy Price</h4>
+            <p class="role">Prototype &amp; Testing Lead</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">AM</div>
+            <h4>Ali Mustapha</h4>
+            <p class="role">Design &amp; CAD Lead</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" aria-hidden="true">LB</div>
+            <h4>Laurence Barakat</h4>
+            <p class="role">Research &amp; Docs Lead</p>
+          </div>
+        </div>
       </div>
-      <div class="team-card">
-        <div class="team-avatar" aria-hidden="true">+</div>
-        <h4>Open Slot</h4>
-        <p class="role">For future collab</p>
+
+      <!-- Sitemap -->
+      <div>
+        <div class="section-head reveal" style="margin-bottom: var(--s-2);">
+          <span class="section-eyebrow">structure</span>
+          <h2 class="section-title" style="font-size: 1.4rem;">Site map</h2>
+        </div>
+        <div class="sitemap reveal">
+          <div class="sitemap-node root">index.html</div>
+          <div class="sitemap-children">
+            <div class="sitemap-node">prototype1</div>
+            <div class="sitemap-node">prototype2</div>
+            <div class="sitemap-node">prototype3</div>
+            <div class="sitemap-node">final</div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- =================== SITEMAP =================== -->
-<section id="sitemap">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">site map</span>
-      <h2 class="section-title">How this site is organised</h2>
-    </div>
-
-    <div class="sitemap reveal">
-      <div class="sitemap-node">index.html</div>
-      <div class="sitemap-children">
-        <div class="sitemap-node">prototype1.html</div>
-        <div class="sitemap-node">prototype2.html</div>
-        <div class="sitemap-node">prototype3.html</div>
-        <div class="sitemap-node">final.html</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =================== FEEDBACK FORM =================== -->
-<section id="feedback">
+<!-- =================== FEEDBACK FORM (TIGHT) =================== -->
+<section id="feedback" class="section-tight">
   <div class="container">
     <div class="section-head reveal">
       <span class="section-eyebrow">contact</span>
       <h2 class="section-title">Feedback?</h2>
-      <p class="section-sub">Drop a note. Tell me which prototype was the worst (it's P1, isn't it).</p>
+      <p class="section-sub">Drop a note — questions, suggestions, or just tell us P1 was the worst (we know).</p>
     </div>
 
     <div class="form-wrap reveal">
-      <!-- Replace YOUR_FORM_ID with your Formspree endpoint -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-grid">
+      <form action="https://formspree.io/f/h.kandemir@hotmail.com.au" method="POST" class="form-grid">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" required autocomplete="name" />
@@ -383,7 +376,7 @@
           <label for="favourite">Favourite prototype</label>
           <select id="favourite" name="favourite" required>
             <option value="">Pick one…</option>
-            <option>Prototype 1 (the brave little disaster)</option>
+            <option>Prototype 1 (the disaster)</option>
             <option>Prototype 2 (the same-size mistake)</option>
             <option>Prototype 3 (the almost-there)</option>
             <option>Final (coming soon)</option>
@@ -391,7 +384,7 @@
         </div>
         <div class="field full">
           <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Your thoughts, suggestions, or just say hi 👋"></textarea>
+          <textarea id="message" name="message" required placeholder="Your thoughts 👋"></textarea>
         </div>
         <div class="full">
           <button type="submit" class="btn btn-primary">Send message <span class="arrow">→</span></button>
@@ -408,18 +401,16 @@
   <div class="footer-inner">
     <div class="footer-meta">
       <strong>Hasan Kandemir</strong> · ID: 100376427<br />
-      <strong>Course:</strong> ICT30120 Certificate III in IT — ICTWEB304<br />
-      <strong>Project:</strong> ESP32-C3 Zero Protective Case Design Journey
+      <strong>Course:</strong> ICT30120 — ICTWEB304<br />
+      <strong>Project:</strong> ESP32-C3 Zero Protective Case
     </div>
     <div class="footer-meta" style="text-align: right;">
       Built with <strong>HTML + CSS</strong>, no frameworks.<br />
       <strong>2026</strong> · Made in Melbourne 🇦🇺<br />
-      <strong>Status:</strong> <span style="color:var(--accent-soft)">prototype 3 / 4</span>
+      <strong>Status:</strong> <span style="color:var(--accent)">prototype 3 / 4</span>
     </div>
   </div>
-  <div class="footer-bottom">
-    © 2026 Hasan Kandemir — Submitted for assessment under ICTWEB304
-  </div>
+  <div class="footer-bottom">© 2026 Hasan Kandemir — Submitted under ICTWEB304</div>
 </footer>
 
 <!-- Lightbox -->
@@ -429,55 +420,34 @@
 </div>
 
 <script>
-// ====== Mobile nav toggle ======
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', open);
 });
-
-// ====== Scroll progress bar ======
 const progress = document.getElementById('scrollProgress');
 window.addEventListener('scroll', () => {
   const h = document.documentElement.scrollHeight - window.innerHeight;
-  const p = window.scrollY / h;
-  progress.style.transform = `scaleX(${p})`;
+  progress.style.transform = `scaleX(${window.scrollY / h})`;
 }, { passive: true });
-
-// ====== Scroll reveal (IntersectionObserver) ======
 const reveals = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(r => io.observe(r));
-
-// ====== Bento mouse-follow glow ======
 document.querySelectorAll('.bento-item').forEach(item => {
   item.addEventListener('mousemove', (e) => {
     const rect = item.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    item.style.setProperty('--mx', `${x}%`);
-    item.style.setProperty('--my', `${y}%`);
+    item.style.setProperty('--mx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    item.style.setProperty('--my', `${((e.clientY - rect.top) / rect.height) * 100}%`);
   });
 });
-
-// ====== Lightbox ======
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 document.querySelectorAll('.photo-item img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('open');
-  });
+  img.addEventListener('click', () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); });
 });
 function closeLightbox() { lightbox.classList.remove('open'); }
 lightbox.addEventListener('click', closeLightbox);
@@ -486,5 +456,5 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLight
 </script>
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07a9cde6b25c548',t:'MTc4MDc4MjQxNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07abb64c9f03682',t:'MTc4MDc4MzY2Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

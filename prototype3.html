@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Prototype 3 of the ESP32-C3 Zero Protective Case — fits, clips, vents. Needs lid recess depth." />
-<meta name="theme-color" content="#012f35" />
+<meta name="description" content="Prototype 3 of the ESP32-C3 Zero Protective Case — fits, clips, vents. One last fix needed." />
+<meta name="theme-color" content="#0d1117" />
 <title>Prototype 3 // ESP32-C3 Case Project</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" />
 <link rel="stylesheet" href="style.css" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23006d77'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-weight='900' font-size='28' fill='%23012f35'%3EH%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f97316'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='monospace' font-weight='900' font-size='30' fill='%230d1117'%3EH%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
 
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 <div class="floating-shapes" aria-hidden="true">
-  <div class="shape"></div><div class="shape"></div><div class="shape"></div>
-  <div class="shape"></div><div class="shape"></div>
+  <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
 </div>
 
 <nav class="nav" aria-label="Primary">
@@ -41,17 +40,16 @@
 
 <main>
 
-<section class="hero">
+<section class="hero" style="min-height: auto; padding-bottom: var(--s-3);">
   <div class="container">
     <div class="hero-content">
       <span class="hero-tag"><span class="dot" style="background: var(--warn);"></span> Prototype 03 // NEEDS IMPROVEMENT</span>
       <h1>It <span class="gradient">almost</span> works.</h1>
       <p class="lede">
-        Board fits. Lid clips. Vents present. Pins accessible. One last issue — the lid recess isn't deep enough, so it won't close flush. So close to the finish line we can taste it.
+        Board fits. Lid clips. Vents present. Pins accessible. One small issue — the lid recess isn't deep enough to clear the chip, so it can't close flush.
       </p>
-
       <div class="stat-pills">
-        <div class="stat-pill"><span class="label">Date</span><span class="value">02 / 06 / 2026</span></div>
+        <div class="stat-pill"><span class="label">Date</span><span class="value">02/06/2026</span></div>
         <div class="stat-pill"><span class="label">Print time</span><span class="value">28m 49s</span></div>
         <div class="stat-pill"><span class="label">Material</span><span class="value">6.19g</span></div>
         <div class="stat-pill"><span class="label">Cost</span><span class="value">$0.19</span></div>
@@ -61,45 +59,24 @@
   </div>
 </section>
 
-<section>
+<section style="padding-top: 0;">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="section-eyebrow">walkthrough</span>
-      <h2 class="section-title">The one where most things finally worked</h2>
-    </div>
 
-    <div class="desc reveal">
-      <h3>Most boxes ticked. One left to tick.</h3>
-      <p>Prototype 3 is where the lessons from P1 and P2 paid off. The internal dimensions were finally measured against the physical board (not just the datasheet), with appropriate tolerance for FDM printer accuracy. The board slides in snugly without being forced.</p>
-      <p>The leg-and-hole snap fit was redesigned — legs slightly oversized relative to the holes, with a subtle barb. This time the lid actually clips into place. Ventilation slots were added across the top and side panels, allowing real airflow for the board during operation.</p>
-      <p>USB-C, GPIO pins, and onboard buttons are all accessible without removing the case. This is the first prototype that <em>functions</em>.</p>
-      <p><strong>The one outstanding issue:</strong> the interior recess on the underside of the lid isn't deep enough. The lid sits proud of the case body — about 1mm off — and won't close completely flush. The fix for the final design is straightforward: deepen the lid's interior pocket so it can sink fully onto the case lip.</p>
-    </div>
+    <div class="proto-layout">
+      <div class="reveal">
+        <div class="photo-grid" style="grid-template-columns: repeat(2, 1fr); margin: 0;">
+          <div class="photo-item"><img src="images/p3_1.JPG" alt="Prototype 3 — assembled case with board fitted" /></div>
+          <div class="photo-item"><img src="images/p3_2.JPG" alt="Prototype 3 — ventilation slots on side" /></div>
+          <div class="photo-item"><img src="images/p3_3.JPG" alt="Prototype 3 — leg-and-hole snap-fit lid system working" /></div>
+          <div class="photo-item"><img src="images/p3_4.JPG" alt="Prototype 3 — lid showing small gap due to shallow recess" /></div>
+        </div>
+      </div>
 
-    <div class="photo-grid reveal">
-      <div class="photo-item">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          [P3 — Assembled]<br>Add your image
-        </div>
-      </div>
-      <div class="photo-item">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          [P3 — Ventilation slots]<br>Add your image
-        </div>
-      </div>
-      <div class="photo-item">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          [P3 — Board fitted]<br>Add your image
-        </div>
-      </div>
-      <div class="photo-item">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          [P3 — Lid gap detail]<br>Add your image
-        </div>
+      <div class="desc reveal" style="margin: 0;">
+        <h3>Most boxes ticked. One to go.</h3>
+        <p>Full design brainstorm before this iteration paid off. Internal dimensions corrected against the physical board (not just datasheet) with proper FDM tolerance allowance. Board slides in snugly.</p>
+        <p>Leg-and-hole snap fit redesigned — legs slightly smaller than holes with friction-fit grip. Lid actually clips into place. Ventilation slots added to the sides. USB-C, GPIO, and buttons all accessible.</p>
+        <p><strong>The one outstanding issue:</strong> the interior recess on the underside of the lid isn't deep enough — it presses against the top of the chip, so the case can't close flush. Small visible gap remains. Fix is straightforward: deepen the lid recess in the final design.</p>
       </div>
     </div>
 
@@ -108,55 +85,38 @@
         <div class="card-title">🟢 Pros</div>
         <ul>
           <li>Board fits correctly — no forcing</li>
-          <li>Leg-and-hole snap fit actually clips</li>
+          <li>Snap-fit lid clips properly</li>
           <li>Ventilation slots functional</li>
-          <li>All ports and buttons accessible</li>
-          <li>Walls hold up to handling</li>
-          <li>First prototype that's <em>almost</em> usable</li>
+          <li>All ports + buttons accessible</li>
+          <li>Walls solid on handling</li>
+          <li>First <em>almost</em>-usable prototype</li>
         </ul>
       </div>
       <div class="card card-cons">
         <div class="card-title">🔴 Remaining issues</div>
         <ul>
-          <li>Lid interior recess not deep enough</li>
-          <li>Lid sits ~1mm proud of the case body</li>
-          <li>Won't close completely flush</li>
-          <li>Print time getting long for iterations (~29 min)</li>
+          <li>Lid interior recess too shallow</li>
+          <li>Lid presses against top of chip</li>
+          <li>Case can't close completely flush</li>
+          <li>Small visible gap remains</li>
         </ul>
       </div>
       <div class="card card-improve">
-        <div class="card-title">🛠️ Planned improvements for final</div>
+        <div class="card-title">🛠️ Planned for Final</div>
         <ul>
-          <li>Deepen lid interior recess by ~1.5mm</li>
-          <li>Verify all measurements one more time before final print</li>
-          <li>Consider chamfering top edges for aesthetics</li>
+          <li>Deepen lid interior recess to clear chip</li>
+          <li>Final tolerance audit before print</li>
+          <li>Verify lid sits flush on case body</li>
           <li>Final ventilation pattern review</li>
         </ul>
       </div>
     </div>
 
-    <div class="terminal reveal" style="max-width: 640px;">
-      <div class="terminal-bar">
-        <span class="dot-r"></span><span class="dot-r"></span><span class="dot-r"></span>
-        <span class="term-title">~/prototypes/p3/status</span>
-      </div>
-      <div class="terminal-body">
-        <div class="term-prompt">grep -i "PASS\|FAIL" tests.log</div>
-        <div class="term-output">[PASS] board_fitment</div>
-        <div class="term-output">[PASS] lid_snap_fit</div>
-        <div class="term-output">[PASS] ventilation_present</div>
-        <div class="term-output">[PASS] usb_c_access</div>
-        <div class="term-output">[PASS] gpio_access</div>
-        <div class="term-output">[PASS] button_alignment</div>
-        <div class="term-output">[FAIL] lid_recess_depth_check</div>
-        <div class="term-output muted">6/7 tests passed. Fix in final.<span class="cursor-blink"></span></div>
-      </div>
-    </div>
-
-    <div style="margin-top: var(--s-4); display: flex; gap: var(--s-2); flex-wrap: wrap;">
+    <div style="margin-top: var(--s-3); display: flex; gap: 0.75rem; flex-wrap: wrap;">
       <a href="prototype2.html" class="btn btn-ghost">← Previous: P2</a>
       <a href="final.html" class="btn btn-primary">Next: Final Design <span class="arrow">→</span></a>
     </div>
+
   </div>
 </section>
 
@@ -172,10 +132,10 @@
     <div class="footer-meta" style="text-align: right;">
       Built with <strong>HTML + CSS</strong>, no frameworks.<br>
       <strong>2026</strong> · Made in Melbourne 🇦🇺<br>
-      <strong>Status:</strong> <span style="color:var(--accent-soft)">P3 documented · final pending</span>
+      <strong>Status:</strong> <span style="color:var(--accent)">P3 documented · final pending</span>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Hasan Kandemir — Submitted for assessment under ICTWEB304</div>
+  <div class="footer-bottom">© 2026 Hasan Kandemir — Submitted under ICTWEB304</div>
 </footer>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview">
@@ -186,20 +146,16 @@
 <script>
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', open);
-});
+navToggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
 const progress = document.getElementById('scrollProgress');
 window.addEventListener('scroll', () => {
   const h = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.transform = `scaleX(${window.scrollY / h})`;
 }, { passive: true });
-const reveals = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-reveals.forEach(r => io.observe(r));
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
@@ -211,6 +167,6 @@ lightbox.addEventListener('click', closeLightbox);
 lightboxClose.addEventListener('click', closeLightbox);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07a9d79aa98c548',t:'MTc4MDc4MjQ0Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07abba9ba413682',t:'MTc4MDc4MzY3OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
