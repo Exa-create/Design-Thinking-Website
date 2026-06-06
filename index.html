@@ -1,242 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ESP32-C3 Zero Case — Hasan Kandemir</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="ESP32-C3 Zero Protective Case — A 3D printing design journey by Hasan Kandemir, ICT30120 Cert III IT." />
+<meta name="author" content="Hasan Kandemir" />
+<meta name="theme-color" content="#012f35" />
+<title>ESP32-C3 Case Project // Hasan Kandemir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" />
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23006d77'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-weight='900' font-size='28' fill='%23012f35'%3EH%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon">ESP<br>32</div>
-      <div class="nav-logo-text">Case Design<br>Journey</div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- floating decorative shapes -->
+<div class="floating-shapes" aria-hidden="true">
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+<!-- =================== NAVIGATION =================== -->
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Home — Hasan Kandemir">
+      <span class="logo-mark" aria-hidden="true">H</span>
+      <span class="logo-text">
+        <span>kandemir.dev</span>
+        <small>esp32-c3 case project</small>
+      </span>
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="prototype1.html">Prototype 1</a></li>
-      <li><a href="prototype2.html">Prototype 2</a></li>
-      <li><a href="prototype3.html">Prototype 3</a></li>
-      <li><a href="final.html">Final Design</a></li>
-    </ul>
-  </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="active">home</a>
+      <a href="prototype1.html">p1</a>
+      <a href="prototype2.html">p2</a>
+      <a href="prototype3.html">p3</a>
+      <a href="final.html">final</a>
+    </div>
+  </div>
+</nav>
 
-  <main class="page-wrap">
+<main>
 
-    <!-- HERO -->
-    <div class="page-hero">
-      <span class="page-tag">ICTWEB304 — Assessment Task 3</span>
-      <h1>ESP32-C3 Zero<br><span>Protective Case</span></h1>
-      <p>A documented design journey through three prototype iterations of a 3D-printed protective case for the ESP32-C3 Zero microcontroller — from concept to classroom-ready solution.</p>
-      <div class="stat-row">
-        <div class="stat-pill"><span class="label">Student</span><span class="value">Hasan Kandemir</span></div>
-        <div class="stat-pill"><span class="label">ID</span><span class="value">100376427</span></div>
-        <div class="stat-pill"><span class="label">Prototypes</span><span class="value">3 + Final</span></div>
-        <div class="stat-pill"><span class="label">Material</span><span class="value">PLA Filament</span></div>
+<!-- =================== HERO =================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-tag"><span class="dot"></span> Live // 4 prototypes documented</span>
+      <h1>Designing a <span class="gradient">protective case</span> for the ESP32-C3 Zero.</h1>
+      <p class="lede">
+        A documented iteration journey — from "wait, why won't it fit" to a working final prototype.
+        Three failed prints, one that nearly worked, lessons in tolerance, ventilation, and humility. 🛠️
+      </p>
+      <div class="hero-actions">
+        <a href="#prototypes" class="btn btn-primary">View prototypes <span class="arrow">→</span></a>
+        <a href="#comparison" class="btn btn-ghost">Comparison table</a>
       </div>
-    </div>
 
-    <!-- PROJECT OVERVIEW -->
-    <h2 class="section-title">Project Overview</h2>
-    <div class="desc-block">
-      <p>We are working on designing and 3D printing a protective case for the ESP32-C3 Zero microcontroller as part of our TAFE project. The case needs to fit the board correctly, protect it during classroom use, allow access to the USB-C port, pins and buttons, and include ventilation holes for airflow and cooling.</p>
-      <br>
-      <p>The main users of this product are IT students and teachers in a TAFE classroom and workshop environment. Students use the ESP32-C3 Zero during practical lessons where the board gets handled a lot, connected to computers via USB-C, and shared between team members. The case needs to be durable enough for everyday classroom use, allow easy access to the USB-C port, pins and buttons for programming and testing, and include ventilation so the board stays at a safe temperature.</p>
-      <br>
-      <p>Each team member created their own first prototype individually. We then came together as a team, compared what worked and what didn't, and used the best ideas from each design to guide the next iteration. This website documents Hasan Kandemir's individual design journey.</p>
-    </div>
-
-    <!-- SITE MAP -->
-    <h2 class="section-title">Site Map</h2>
-    <div class="sitemap" style="margin-bottom: 2.5rem;">
-      <div class="sitemap-home">🏠 Home (index.html)</div>
-      <div class="sitemap-line"></div>
-      <div class="sitemap-row" style="padding-top: 0;">
-        <div class="sitemap-branch">
-          <div class="sitemap-branch-line"></div>
-          <a href="prototype1.html" class="sitemap-node" style="text-decoration:none;">Prototype 1</a>
+      <!-- Terminal personality block -->
+      <div class="terminal" style="margin-top: var(--s-4); max-width: 560px;">
+        <div class="terminal-bar">
+          <span class="dot-r"></span><span class="dot-r"></span><span class="dot-r"></span>
+          <span class="term-title">~/projects/esp32-case</span>
         </div>
-        <div class="sitemap-branch">
-          <div class="sitemap-branch-line"></div>
-          <a href="prototype2.html" class="sitemap-node" style="text-decoration:none;">Prototype 2</a>
-        </div>
-        <div class="sitemap-branch">
-          <div class="sitemap-branch-line"></div>
-          <a href="prototype3.html" class="sitemap-node" style="text-decoration:none;">Prototype 3</a>
-        </div>
-        <div class="sitemap-branch">
-          <div class="sitemap-branch-line"></div>
-          <a href="final.html" class="sitemap-node" style="text-decoration:none;">Final Design</a>
+        <div class="terminal-body">
+          <div class="term-prompt">cat status.txt</div>
+          <div class="term-output">Prototype 1 ........ <span style="color:var(--fail)">FAIL</span></div>
+          <div class="term-output">Prototype 2 ........ <span style="color:var(--fail)">FAIL</span></div>
+          <div class="term-output">Prototype 3 ........ <span style="color:var(--warn)">NEEDS IMPROVEMENT</span></div>
+          <div class="term-output">Final design ....... <span style="color:var(--accent-soft)">IN PROGRESS</span><span class="cursor-blink"></span></div>
         </div>
       </div>
-      <div style="margin-top:1rem; font-size:0.78rem; color:var(--text-muted); font-family:'Space Mono',monospace; text-align:center;">Navigation menu appears at the top of every page · All pages share the same consistent layout</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== BENTO OVERVIEW =================== -->
+<section id="overview">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">overview</span>
+      <h2 class="section-title">The project at a glance</h2>
+      <p class="section-sub">Quick stats, the goal, the constraints, and how each iteration scored.</p>
     </div>
 
-    <!-- TEAM -->
-    <h2 class="section-title">Team Members</h2>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="name">Hasan Kandemir</div>
-        <div class="role">Team Coordinator</div>
-        <div class="responsibilities">Organises the team, assigns tasks, keeps everyone on track with deadlines and communicates between team members and the teacher.</div>
+    <div class="bento">
+
+      <!-- Big stat — total prints -->
+      <div class="bento-item bento-span-2 reveal">
+        <div class="bento-eyebrow">Total prints</div>
+        <div class="bento-big-number">4</div>
+        <p>iterations across 8 days</p>
       </div>
-      <div class="team-card">
-        <div class="name">Jeremy Price</div>
-        <div class="role">Prototype &amp; Testing Lead</div>
-        <div class="responsibilities">Oversees test printing of prototypes, checks fit and function, identifies problems and records testing results and feedback.</div>
+
+      <!-- Cost -->
+      <div class="bento-item bento-span-2 reveal">
+        <div class="bento-eyebrow">Filament cost</div>
+        <div class="bento-big-number">$0.41</div>
+        <p>across all 3 failed prints</p>
       </div>
-      <div class="team-card">
-        <div class="name">Ali Mustapha</div>
-        <div class="role">Design &amp; CAD Lead</div>
-        <div class="responsibilities">Creates and edits the 3D model using CAD software, ensures measurement and design accuracy, and prepares files for printing.</div>
+
+      <!-- Print time -->
+      <div class="bento-item bento-span-2 reveal">
+        <div class="bento-eyebrow">Total print time</div>
+        <div class="bento-big-number">61m</div>
+        <p>47 seconds, to be precise</p>
       </div>
-      <div class="team-card">
-        <div class="name">Laurence Barakat</div>
-        <div class="role">Research &amp; Documentation Lead</div>
-        <div class="responsibilities">Researches project information, records ideas and decisions, organises project documents, and helps prepare the final presentation.</div>
+
+      <!-- Goal -->
+      <div class="bento-item bento-span-3 reveal">
+        <div class="bento-eyebrow">The goal</div>
+        <h3>A snug-fit, vented, removable lid case</h3>
+        <p>For an ESP32-C3 Zero microcontroller — exposed pins, USB-C access, ventilation, drop protection. Classroom and workshop-ready.</p>
+        <a href="#prototypes" class="bento-link">See the iterations →</a>
       </div>
+
+      <!-- Constraints -->
+      <div class="bento-item bento-span-3 reveal">
+        <div class="bento-eyebrow">Constraints</div>
+        <h3>Wall thickness vs. fitment vs. ventilation</h3>
+        <p>Three competing priorities — every iteration traded off one to improve another. The final design balances all three.</p>
+        <a href="prototype3.html" class="bento-link">P3 breakdown →</a>
+      </div>
+
+      <!-- Tools used -->
+      <div class="bento-item bento-span-3 reveal">
+        <div class="bento-eyebrow">Stack</div>
+        <h3>CAD → Slicer → Printer → Test</h3>
+        <p>Fusion 360 for the model. Slicer of choice for layer settings. FDM 3D printer. Real ESP32-C3 Zero board for fitment testing.</p>
+      </div>
+
+      <!-- Status -->
+      <div class="bento-item bento-span-3 reveal">
+        <div class="bento-eyebrow">Current status</div>
+        <h3>P3 works (almost). Final coming.</h3>
+        <p>The third prototype hits all key requirements but the lid recess needs depth tuning. Final design will fix that.</p>
+        <a href="final.html" class="bento-link">Final preview →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== PROTOTYPES TIMELINE =================== -->
+<section id="prototypes">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">the journey</span>
+      <h2 class="section-title">Four prototypes, four lessons.</h2>
+      <p class="section-sub">Each iteration documented with date, print time, material cost, and what we learned.</p>
     </div>
 
-    <!-- DESIGN COMPARISON TABLE -->
-    <h2 class="section-title">Design Comparison</h2>
-    <div class="comparison-table-wrap">
-      <table class="comparison-table">
+    <div class="timeline">
+
+      <!-- P1 -->
+      <div class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <article class="tl-card">
+          <div class="tl-head">
+            <h3>Prototype 1 — The "Oh, that's how thin 1mm is" moment</h3>
+            <span class="badge badge-fail">Fail</span>
+          </div>
+          <p class="tl-meta">26 / 05 / 2026 · 12m 57s · 3.02g · $0.09</p>
+          <p>Wrong print orientation, walls too thin and snapped instantly. Board didn't fit. Pin slots too small. No ventilation. No lid. Beautiful disaster.</p>
+          <a href="prototype1.html" class="bento-link">Read full breakdown →</a>
+        </article>
+      </div>
+
+      <!-- P2 -->
+      <div class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <article class="tl-card">
+          <div class="tl-head">
+            <h3>Prototype 2 — Two-piece design, same-size mistake</h3>
+            <span class="badge badge-fail">Fail</span>
+          </div>
+          <p class="tl-meta">01 / 06 / 2026 · 20m 01s · 4.25g · $0.13</p>
+          <p>Introduced a two-piece design with a leg-and-hole lid system. Made the legs and holes the same size — they didn't snap, they just slid. Button holes in wrong position. Board still misaligned. No ventilation.</p>
+          <a href="prototype2.html" class="bento-link">Read full breakdown →</a>
+        </article>
+      </div>
+
+      <!-- P3 -->
+      <div class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <article class="tl-card">
+          <div class="tl-head">
+            <h3>Prototype 3 — It... almost works.</h3>
+            <span class="badge badge-warn">Needs Improvement</span>
+          </div>
+          <p class="tl-meta">02 / 06 / 2026 · 28m 49s · 6.19g · $0.19</p>
+          <p>Board fits correctly. Leg-and-hole lid system actually clips. Ventilation slots added. Pins accessible. One remaining issue: the lid's interior recess isn't deep enough — it can't close flush.</p>
+          <a href="prototype3.html" class="bento-link">Read full breakdown →</a>
+        </article>
+      </div>
+
+      <!-- Final -->
+      <div class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <article class="tl-card">
+          <div class="tl-head">
+            <h3>Final Design — Coming soon</h3>
+            <span class="badge badge-pending">In Progress</span>
+          </div>
+          <p class="tl-meta">// awaiting print</p>
+          <p>Lid recess depth tuned. Wall thickness verified. Ventilation pattern finalised. All previous lessons applied. Print scheduled.</p>
+          <a href="final.html" class="bento-link">View placeholder →</a>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =================== COMPARISON TABLE =================== -->
+<section id="comparison">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">side by side</span>
+      <h2 class="section-title">Comparison across all prototypes</h2>
+      <p class="section-sub">Required by ICTWEB304 — and genuinely useful for spotting the pattern.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table class="compare" aria-label="Prototype comparison">
         <thead>
           <tr>
-            <th>Criteria</th>
-            <th>Prototype 1</th>
-            <th>Prototype 2</th>
-            <th>Prototype 3</th>
-            <th>Final Design</th>
+            <th scope="col">Criterion</th>
+            <th scope="col">Prototype 1</th>
+            <th scope="col">Prototype 2</th>
+            <th scope="col">Prototype 3</th>
+            <th scope="col">Final</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Fit &amp; Size</td>
-            <td>Board did not fit — internal dimensions too small, printed in wrong orientation</td>
-            <td>Tight and misaligned fit — one side required sanding to insert board</td>
-            <td>Correct dimensions — board sits securely with comfortable clearance</td>
-            <td>Coming soon</td>
+            <td>Board fit / sizing</td>
+            <td><span class="badge badge-fail">No</span></td>
+            <td><span class="badge badge-fail">No</span></td>
+            <td><span class="badge badge-pass">Yes</span></td>
+            <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
-            <td>Ventilation / Cooling</td>
-            <td>No ventilation holes included</td>
-            <td>No ventilation holes — identified as needed for Prototype 3</td>
-            <td>Ventilation slots added to sides of base — airflow achieved</td>
-            <td>Coming soon</td>
+            <td>Ventilation</td>
+            <td><span class="badge badge-fail">None</span></td>
+            <td><span class="badge badge-fail">None</span></td>
+            <td><span class="badge badge-pass">Slots added</span></td>
+            <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
-            <td>Ease of Printing</td>
-            <td>Poor — printed in wrong orientation causing structural weakness</td>
-            <td>Moderate — printed correctly but lid system too complex</td>
-            <td>Good — correct orientation, cleaner geometry, printed successfully</td>
-            <td>Coming soon</td>
+            <td>Ease of printing</td>
+            <td><span class="badge badge-warn">Fast / fragile</span></td>
+            <td><span class="badge badge-warn">Mid</span></td>
+            <td><span class="badge badge-pass">Solid</span></td>
+            <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
-            <td>Lid / Closure System</td>
-            <td>Single-piece design — no lid. Wall snapped off during removal</td>
-            <td>Leg-and-hole system — both parts same size, could not connect</td>
-            <td>Leg-and-hole system redesigned — fits smoothly without force</td>
-            <td>Coming soon</td>
+            <td>Lid system</td>
+            <td>—</td>
+            <td><span class="badge badge-fail">Same-size legs/holes</span></td>
+            <td><span class="badge badge-warn">Clips but won't close flush</span></td>
+            <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
-            <td>Port Access (USB-C)</td>
-            <td>Port opening present but case too small for board to sit correctly</td>
-            <td>USB-C port accessible from front — visible gap</td>
-            <td>USB-C port accessible through opening in base</td>
-            <td>Coming soon</td>
+            <td>Pin / USB-C access</td>
+            <td><span class="badge badge-fail">No</span></td>
+            <td><span class="badge badge-fail">Wrong position</span></td>
+            <td><span class="badge badge-pass">Accessible</span></td>
+            <td><span class="badge badge-pending">TBD</span></td>
           </tr>
           <tr>
-            <td>Button Access</td>
-            <td>Pin slots too small — GPIO pins could not pass through</td>
-            <td>Button holes incorrectly positioned — chip could not sit properly</td>
-            <td>Buttons accessible — cutouts aligned correctly</td>
-            <td>Coming soon</td>
-          </tr>
-          <tr>
-            <td>Print Time</td>
+            <td>Print time</td>
             <td>12m 57s</td>
             <td>20m 01s</td>
             <td>28m 49s</td>
-            <td>Coming soon</td>
+            <td>TBD</td>
           </tr>
           <tr>
-            <td>Material Used</td>
-            <td>3.02g</td>
-            <td>4.25g</td>
-            <td>6.19g</td>
-            <td>Coming soon</td>
-          </tr>
-          <tr>
-            <td>Estimated Cost</td>
+            <td>Filament cost</td>
             <td>$0.09</td>
             <td>$0.13</td>
             <td>$0.19</td>
-            <td>Coming soon</td>
+            <td>TBD</td>
           </tr>
           <tr>
-            <td>Test Result</td>
-            <td><span class="result-badge fail">✗ Fail</span></td>
-            <td><span class="result-badge fail">✗ Fail</span></td>
-            <td><span class="result-badge warn">⚠ Needs Improvement</span></td>
-            <td><span class="result-badge pass">✓ Coming Soon</span></td>
+            <td>Result</td>
+            <td><span class="badge badge-fail">Fail</span></td>
+            <td><span class="badge badge-fail">Fail</span></td>
+            <td><span class="badge badge-warn">Needs improvement</span></td>
+            <td><span class="badge badge-pending">In progress</span></td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+</section>
 
-    <!-- CONTACT / FEEDBACK FORM -->
-    <h2 class="section-title">Feedback &amp; Enquiry</h2>
-    <div class="form-wrap">
-      <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.5rem;">Have feedback on the design or the website? Use the form below to get in touch.</p>
-      <form action="https://formspree.io/f/h.kandemir@hotmail.com.au" method="POST" onsubmit="handleSubmit(event)">
-        <input type="hidden" name="_subject" value="ESP32 Case Website Feedback" />
-        <input type="hidden" name="_replyto" value="h.kandemir@hotmail.com.au" />
-        <div class="form-grid">
-          <div class="form-field">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-field">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-field full">
-            <label for="reason">Reason for Enquiry</label>
-            <textarea id="reason" name="reason" placeholder="Describe your feedback or question..." required></textarea>
-          </div>
-          <div class="form-field full">
-            <label for="preference">Preferred Prototype</label>
-            <select id="preference" name="preference" required>
-              <option value="" disabled selected>Select a prototype...</option>
-              <option value="prototype1">Prototype 1</option>
-              <option value="prototype2">Prototype 2</option>
-              <option value="prototype3">Prototype 3</option>
-              <option value="final">Final Design</option>
-              <option value="overall">Overall Project</option>
-            </select>
-          </div>
-        </div>
-        <button type="submit" class="btn-submit">Submit Feedback</button>
-      </form>
-      <div id="form-success" style="display:none; margin-top:1rem; color:var(--pass); font-family:'Space Mono',monospace; font-size:0.85rem;">✓ Thanks for your feedback! We'll be in touch.</div>
+<!-- =================== TEAM =================== -->
+<section id="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">credits</span>
+      <h2 class="section-title">Team</h2>
+      <p class="section-sub">This is a solo build for the assessment — but if there were collaborators, here's where they'd live.</p>
     </div>
 
-  </main>
+    <div class="team reveal">
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true">HK</div>
+        <h4>Hasan Kandemir</h4>
+        <p class="role">Designer · Developer · Print Tech</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" aria-hidden="true">+</div>
+        <h4>Open Slot</h4>
+        <p class="role">For future collab</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    100376427 · Hasan Kandemir · ESP32-C3 Zero Protective Case · ICT30120 Certificate III in Information Technology
-  </footer>
+<!-- =================== SITEMAP =================== -->
+<section id="sitemap">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">site map</span>
+      <h2 class="section-title">How this site is organised</h2>
+    </div>
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      document.getElementById('form-success').style.display = 'block';
-      e.target.reset();
+    <div class="sitemap reveal">
+      <div class="sitemap-node">index.html</div>
+      <div class="sitemap-children">
+        <div class="sitemap-node">prototype1.html</div>
+        <div class="sitemap-node">prototype2.html</div>
+        <div class="sitemap-node">prototype3.html</div>
+        <div class="sitemap-node">final.html</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FEEDBACK FORM =================== -->
+<section id="feedback">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">contact</span>
+      <h2 class="section-title">Feedback?</h2>
+      <p class="section-sub">Drop a note. Tell me which prototype was the worst (it's P1, isn't it).</p>
+    </div>
+
+    <div class="form-wrap reveal">
+      <!-- Replace YOUR_FORM_ID with your Formspree endpoint -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-grid">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="reason">Reason for contact</label>
+          <select id="reason" name="reason" required>
+            <option value="">Pick one…</option>
+            <option>General feedback</option>
+            <option>Question about the design</option>
+            <option>Suggestion / improvement idea</option>
+            <option>Collaboration interest</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="favourite">Favourite prototype</label>
+          <select id="favourite" name="favourite" required>
+            <option value="">Pick one…</option>
+            <option>Prototype 1 (the brave little disaster)</option>
+            <option>Prototype 2 (the same-size mistake)</option>
+            <option>Prototype 3 (the almost-there)</option>
+            <option>Final (coming soon)</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Your thoughts, suggestions, or just say hi 👋"></textarea>
+        </div>
+        <div class="full">
+          <button type="submit" class="btn btn-primary">Send message <span class="arrow">→</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =================== FOOTER =================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-meta">
+      <strong>Hasan Kandemir</strong> · ID: 100376427<br />
+      <strong>Course:</strong> ICT30120 Certificate III in IT — ICTWEB304<br />
+      <strong>Project:</strong> ESP32-C3 Zero Protective Case Design Journey
+    </div>
+    <div class="footer-meta" style="text-align: right;">
+      Built with <strong>HTML + CSS</strong>, no frameworks.<br />
+      <strong>2026</strong> · Made in Melbourne 🇦🇺<br />
+      <strong>Status:</strong> <span style="color:var(--accent-soft)">prototype 3 / 4</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Hasan Kandemir — Submitted for assessment under ICTWEB304
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">×</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+// ====== Mobile nav toggle ======
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+
+// ====== Scroll progress bar ======
+const progress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = window.scrollY / h;
+  progress.style.transform = `scaleX(${p})`;
+}, { passive: true });
+
+// ====== Scroll reveal (IntersectionObserver) ======
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
     }
-  </script>
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(r => io.observe(r));
 
-</body>
+// ====== Bento mouse-follow glow ======
+document.querySelectorAll('.bento-item').forEach(item => {
+  item.addEventListener('mousemove', (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    item.style.setProperty('--mx', `${x}%`);
+    item.style.setProperty('--my', `${y}%`);
+  });
+});
+
+// ====== Lightbox ======
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+document.querySelectorAll('.photo-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+  });
+});
+function closeLightbox() { lightbox.classList.remove('open'); }
+lightbox.addEventListener('click', closeLightbox);
+lightboxClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07a9cde6b25c548',t:'MTc4MDc4MjQxNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

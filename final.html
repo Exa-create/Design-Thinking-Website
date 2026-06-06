@@ -1,96 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Final Design — ESP32-C3 Zero Case</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Final design for the ESP32-C3 Zero Protective Case — coming soon." />
+<meta name="theme-color" content="#012f35" />
+<title>Final Design // ESP32-C3 Case Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" />
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23006d77'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-weight='900' font-size='28' fill='%23012f35'%3EH%3C/text%3E%3C/svg%3E" />
+<style>
+/* page-specific final layout */
+.final-hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: var(--s-7) 0;
+}
+.coming-soon-mark {
+  position: relative;
+  width: 220px; height: 220px;
+  margin: 0 auto var(--s-4);
+  display: grid;
+  place-items: center;
+}
+.coming-soon-mark::before, .coming-soon-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed var(--accent-soft);
+  opacity: 0.3;
+  animation: spin 30s linear infinite;
+}
+.coming-soon-mark::after { animation-direction: reverse; animation-duration: 45s; inset: 25px; opacity: 0.2; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.coming-soon-inner {
+  width: 130px; height: 130px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 0 60px rgba(131, 197, 190, 0.4);
+  position: relative;
+  z-index: 1;
+}
+.progress-line {
+  max-width: 480px;
+  margin: var(--s-4) auto;
+  background: var(--bg-mid);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 8px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  border-radius: 100px;
+  width: 75%;
+  position: relative;
+  overflow: hidden;
+}
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: progress-shine 2s linear infinite;
+}
+@keyframes progress-shine { to { transform: translateX(100%); } }
+.checklist {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: left;
+  background: var(--bg-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--s-3);
+}
+.checklist li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+.checklist li:last-child { border-bottom: 0; }
+.checklist .check {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+.check.done { background: var(--pass); color: var(--bg); }
+.check.pending { background: rgba(131, 197, 190, 0.15); color: var(--accent-soft); border: 1px solid var(--accent-soft); }
+.checklist li.pending { color: var(--accent-soft); }
+.checklist li.done { color: rgba(237, 246, 249, 0.6); text-decoration: line-through; text-decoration-color: rgba(74, 222, 128, 0.4); }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon">ESP<br>32</div>
-      <div class="nav-logo-text">Case Design<br>Journey</div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<div class="floating-shapes" aria-hidden="true">
+  <div class="shape"></div><div class="shape"></div><div class="shape"></div>
+  <div class="shape"></div><div class="shape"></div>
+</div>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Home — Hasan Kandemir">
+      <span class="logo-mark" aria-hidden="true">H</span>
+      <span class="logo-text"><span>kandemir.dev</span><small>esp32-c3 case project</small></span>
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="prototype1.html">Prototype 1</a></li>
-      <li><a href="prototype2.html">Prototype 2</a></li>
-      <li><a href="prototype3.html">Prototype 3</a></li>
-      <li><a href="final.html" class="active">Final Design</a></li>
-    </ul>
-  </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">home</a>
+      <a href="prototype1.html">p1</a>
+      <a href="prototype2.html">p2</a>
+      <a href="prototype3.html">p3</a>
+      <a href="final.html" class="active">final</a>
+    </div>
+  </div>
+</nav>
 
-  <main class="page-wrap">
+<main>
 
-    <!-- HERO -->
-    <div class="page-hero">
-      <span class="page-tag">Final Iteration — Coming Soon</span>
-      <h1>Final <span>Design</span></h1>
-      <p>The final improved version of the ESP32-C3 Zero protective case, incorporating all lessons learned across three prototype iterations. This page will be updated once the final print is complete and tested.</p>
-      <div class="stat-row">
-        <div class="stat-pill"><span class="label">Status</span><span class="value">In Progress</span></div>
-        <div class="stat-pill"><span class="label">Based On</span><span class="value">Prototype 3</span></div>
-        <div class="stat-pill"><span class="label">Key Fix</span><span class="value">Lid Interior Recess</span></div>
+<section class="final-hero">
+  <div class="container">
+    <span class="hero-tag" style="margin: 0 auto var(--s-3);"><span class="dot"></span> Final design // in progress</span>
+
+    <div class="coming-soon-mark" aria-hidden="true">
+      <div class="coming-soon-inner">Coming<br>Soon</div>
+    </div>
+
+    <h1 style="font-size: clamp(2.2rem, 5vw, 4rem); max-width: 720px; margin: 0 auto var(--s-2); letter-spacing: -0.02em; line-height: 1.05;">
+      The <span class="gradient">final design</span> is on the print bed.
+    </h1>
+    <p class="lede" style="max-width: 580px; margin: 0 auto var(--s-3);">
+      Building on every lesson from P1 through P3. Lid recess deepened, ventilation pattern locked in, all tolerances verified. Documentation will land here when the print is complete.
+    </p>
+
+    <div class="progress-line" aria-label="Project progress: 75%">
+      <div class="progress-fill" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <p class="mono muted" style="font-size: 0.85rem;">Project complete: <strong style="color: var(--accent-soft);">75%</strong> · 3 / 4 prototypes documented</p>
+
+    <div class="checklist" style="margin-top: var(--s-4);">
+      <li class="done"><span class="check done">✓</span> Prototype 1 — fail documented</li>
+      <li class="done"><span class="check done">✓</span> Prototype 2 — fail documented</li>
+      <li class="done"><span class="check done">✓</span> Prototype 3 — needs-improvement documented</li>
+      <li class="pending"><span class="check pending">·</span> Final design — CAD model in progress</li>
+      <li class="pending"><span class="check pending">·</span> Final design — print + photos</li>
+      <li class="pending"><span class="check pending">·</span> Final design — write-up + comparison update</li>
+    </div>
+
+    <div style="margin-top: var(--s-4); display: flex; gap: var(--s-2); justify-content: center; flex-wrap: wrap;">
+      <a href="prototype3.html" class="btn btn-ghost">← Previous: P3</a>
+      <a href="index.html" class="btn btn-primary">Back to home <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal center" style="margin: 0 auto;">
+      <span class="section-eyebrow">what to expect</span>
+      <h2 class="section-title">What the final page will include</h2>
+    </div>
+
+    <div class="analysis reveal" style="max-width: 980px; margin: 0 auto;">
+      <div class="card card-improve">
+        <div class="card-title">📐 Specs + measurements</div>
+        <ul>
+          <li>Final external + internal dimensions</li>
+          <li>Wall thickness verification</li>
+          <li>Tolerance margins</li>
+          <li>Lid recess depth</li>
+        </ul>
+      </div>
+      <div class="card card-improve">
+        <div class="card-title">📸 Photo documentation</div>
+        <ul>
+          <li>Assembled case</li>
+          <li>Top + side + bottom views</li>
+          <li>Board inserted</li>
+          <li>Lid closed flush (the dream)</li>
+        </ul>
+      </div>
+      <div class="card card-improve">
+        <div class="card-title">🧪 Final test results</div>
+        <ul>
+          <li>Drop test</li>
+          <li>Heat / ventilation check</li>
+          <li>Port access verification</li>
+          <li>Final pass/fail across all criteria</li>
+        </ul>
       </div>
     </div>
 
-    <!-- PLACEHOLDER -->
-    <div class="placeholder-banner">
-      <div class="icon">🖨️</div>
-      <h3>Final design is being printed</h3>
-      <p>Photos, test results, and final documentation will appear here once the print is complete.</p>
+    <div class="terminal reveal" style="max-width: 640px; margin: var(--s-4) auto 0;">
+      <div class="terminal-bar">
+        <span class="dot-r"></span><span class="dot-r"></span><span class="dot-r"></span>
+        <span class="term-title">~/final/build-log.txt</span>
+      </div>
+      <div class="terminal-body">
+        <div class="term-prompt">tail -f build.log</div>
+        <div class="term-output">[02/06 23:47] P3 review complete</div>
+        <div class="term-output">[03/06 09:12] Lid recess deepened in CAD</div>
+        <div class="term-output">[03/06 14:30] Tolerance audit complete</div>
+        <div class="term-output">[—] Awaiting next print slot<span class="cursor-blink"></span></div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- WHAT TO EXPECT -->
-    <h2 class="section-title">What the Final Design Will Include</h2>
-    <div class="desc-block">
-      The final design builds directly on Prototype 3, which was the most successful iteration. Only one issue remains to be resolved: the interior recess of the top half needs to be deepened so the lid can close fully without pressing against the top of the ESP32-C3 Zero chip. All other features from Prototype 3 have been confirmed as working correctly and will carry forward into the final version.
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-meta">
+      <strong>Hasan Kandemir</strong> · ID: 100376427<br>
+      <strong>Course:</strong> ICT30120 — ICTWEB304<br>
+      <strong>Project:</strong> ESP32-C3 Zero Protective Case
     </div>
-
-    <div class="improvements-box">
-      <h3>→ Final improvements from Prototype 3</h3>
-      <ul>
-        <li>Increased depth of interior recess in top half — lid will close flush with no gap</li>
-        <li>All ventilation slots retained from Prototype 3</li>
-        <li>GPIO pin openings retained — confirmed working in Prototype 3</li>
-        <li>USB-C port cutout retained and confirmed accessible</li>
-        <li>Leg-and-hole connection system retained — confirmed working in Prototype 3</li>
-        <li>Final test against all criteria from the project brief testing table</li>
-      </ul>
+    <div class="footer-meta" style="text-align: right;">
+      Built with <strong>HTML + CSS</strong>, no frameworks.<br>
+      <strong>2026</strong> · Made in Melbourne 🇦🇺<br>
+      <strong>Status:</strong> <span style="color:var(--accent-soft)">final pending</span>
     </div>
+  </div>
+  <div class="footer-bottom">© 2026 Hasan Kandemir — Submitted for assessment under ICTWEB304</div>
+</footer>
 
-    <!-- PLACEHOLDER PHOTOS -->
-    <h2 class="section-title">Photos</h2>
-    <div class="placeholder-banner" style="padding: 2rem;">
-      <div class="icon">📷</div>
-      <h3>Photos coming soon</h3>
-      <p>Final prototype photos will be uploaded here once the print is complete and tested.</p>
-    </div>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">×</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
 
-    <!-- PLACEHOLDER RESULTS -->
-    <h2 class="section-title">Test Results</h2>
-    <div class="placeholder-banner" style="padding: 2rem;">
-      <div class="icon">📋</div>
-      <h3>Test results coming soon</h3>
-      <p>Full pass/fail testing results will be recorded here once the final design is printed and evaluated against all criteria.</p>
-    </div>
-
-    <!-- PLACEHOLDER CONCLUSION -->
-    <h2 class="section-title">Conclusion</h2>
-    <div class="placeholder-banner" style="padding: 2rem;">
-      <div class="icon">✏️</div>
-      <h3>Conclusion coming soon</h3>
-      <p>A summary explaining why the final design meets the project brief requirements will be written here once testing is complete.</p>
-    </div>
-
-  </main>
-
-  <footer>
-    100376427 · Hasan Kandemir · ESP32-C3 Zero Protective Case · ICT30120 Certificate III in Information Technology
-  </footer>
-
-</body>
+<script>
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+const progress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = `scaleX(${window.scrollY / h})`;
+}, { passive: true });
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(r => io.observe(r));
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+document.querySelectorAll('.photo-item img').forEach(img => {
+  img.addEventListener('click', () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); });
+});
+function closeLightbox() { lightbox.classList.remove('open'); }
+lightbox.addEventListener('click', closeLightbox);
+lightboxClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07a9cb12bf6c548',t:'MTc4MDc4MjQxMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

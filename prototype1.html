@@ -1,118 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prototype 1 — ESP32-C3 Zero Case</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Prototype 1 of the ESP32-C3 Zero Protective Case — first attempt, the brave little disaster." />
+<meta name="theme-color" content="#012f35" />
+<title>Prototype 1 // ESP32-C3 Case Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap" />
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23006d77'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-weight='900' font-size='28' fill='%23012f35'%3EH%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon">ESP<br>32</div>
-      <div class="nav-logo-text">Case Design<br>Journey</div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<div class="floating-shapes" aria-hidden="true">
+  <div class="shape"></div><div class="shape"></div><div class="shape"></div>
+  <div class="shape"></div><div class="shape"></div>
+</div>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Home — Hasan Kandemir">
+      <span class="logo-mark" aria-hidden="true">H</span>
+      <span class="logo-text"><span>kandemir.dev</span><small>esp32-c3 case project</small></span>
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="prototype1.html" class="active">Prototype 1</a></li>
-      <li><a href="prototype2.html">Prototype 2</a></li>
-      <li><a href="prototype3.html">Prototype 3</a></li>
-      <li><a href="final.html">Final Design</a></li>
-    </ul>
-  </nav>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Enlarged photo" />
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">home</a>
+      <a href="prototype1.html" class="active">p1</a>
+      <a href="prototype2.html">p2</a>
+      <a href="prototype3.html">p3</a>
+      <a href="final.html">final</a>
+    </div>
   </div>
+</nav>
 
-  <main class="page-wrap">
+<main>
 
-    <!-- HERO -->
-    <div class="page-hero">
-      <span class="page-tag">First Iteration — 26 May 2026</span>
-      <h1>Prototype <span>1</span></h1>
-      <p>The first attempt at a protective case for the ESP32-C3 Zero. Printed in orange PLA, this prototype established the basic concept but revealed several critical dimensional and structural issues.</p>
-      <div class="stat-row">
-        <div class="stat-pill"><span class="label">Date</span><span class="value">26/05/2026</span></div>
-        <div class="stat-pill"><span class="label">Print Time</span><span class="value">12m 57s</span></div>
-        <div class="stat-pill"><span class="label">Material</span><span class="value">3.02g PLA</span></div>
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-tag"><span class="dot" style="background: var(--fail);"></span> Prototype 01 // FAIL</span>
+      <h1>The brave little <span class="gradient">disaster</span>.</h1>
+      <p class="lede">
+        Everything that could go wrong in a first print, did. Walls snapped. Pin slots were too tight. Board didn't fit. No lid. No ventilation. Still — you have to start somewhere.
+      </p>
+
+      <div class="stat-pills">
+        <div class="stat-pill"><span class="label">Date</span><span class="value">26 / 05 / 2026</span></div>
+        <div class="stat-pill"><span class="label">Print time</span><span class="value">12m 57s</span></div>
+        <div class="stat-pill"><span class="label">Material</span><span class="value">3.02g</span></div>
         <div class="stat-pill"><span class="label">Cost</span><span class="value">$0.09</span></div>
-        <div class="stat-pill"><span class="label">Result</span><span class="value"><span class="result-badge fail">✗ Fail</span></span></div>
+        <div class="stat-pill"><span class="label">Result</span><span class="badge badge-fail">Fail</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">walkthrough</span>
+      <h2 class="section-title">What happened</h2>
+    </div>
+
+    <div class="desc reveal">
+      <h3>The first attempt — high hopes, low tolerances</h3>
+      <p>The very first CAD-to-print iteration. I went in with rough measurements from the ESP32-C3 Zero datasheet but didn't account for printer tolerance or the realities of FDM layer thickness. The result was a part that looked OK in the slicer but fell apart almost immediately on inspection.</p>
+      <p>Print orientation was wrong, which meant the walls printed with the grain of weakness — they snapped under any meaningful pressure. Even if the walls held, the board still didn't fit inside, and the GPIO pin slots were too tight to seat properly.</p>
+      <p>And of course: no lid, no ventilation. Two of the most important features for the case, completely missed. This print was a humbling reminder that 3D design is not "draw box, print box."</p>
+    </div>
+
+    <div class="photo-grid reveal">
+      <div class="photo-item">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+          [P1 — Top View]<br>Add your image to /images/p1-top.jpg
+        </div>
+      </div>
+      <div class="photo-item">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+          [P1 — Side View]<br>Add your image
+        </div>
+      </div>
+      <div class="photo-item">
+        <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+          [P1 — Broken Wall]<br>Add your image
+        </div>
       </div>
     </div>
 
-    <!-- PHOTOS -->
-    <h2 class="section-title">Photos</h2>
-    <div class="photo-grid">
-      <img src="images/p1_1.JPG" alt="Prototype 1 overview — broken wall and board next to case" onclick="openLightbox(this.src)" />
-      <img src="images/p1_2.JPG" alt="Prototype 1 — showing GPIO pins not fitting through slots" onclick="openLightbox(this.src)" />
-      <img src="images/p1_3.JPG" alt="Prototype 1 — board sitting inside bottom half, wall snapped" onclick="openLightbox(this.src)" />
-      <img src="images/p1_4.JPG" alt="Prototype 1 — parts laid out: bottom half, broken wall strip, and board" onclick="openLightbox(this.src)" />
-    </div>
-
-    <!-- DESCRIPTION -->
-    <h2 class="section-title">Description</h2>
-    <div class="desc-block">
-      Prototype 1 was a basic single-piece tray design, printed in orange PLA. The concept was to create a simple enclosure for the ESP32-C3 Zero with a USB-C port opening cut into one side. The STL was printed in the wrong orientation, which contributed to the walls being structurally weak. Internal dimensions were calculated from rough measurements and did not account for enough clearance, resulting in the board not fitting. The pin slot openings along the sides were too narrow for the GPIO pins to pass through. During removal from the print bed, one of the side walls snapped off entirely — visible in the photos as the long orange strip separate from the main body.
-    </div>
-
-    <!-- PROS / CONS -->
-    <h2 class="section-title">Pros &amp; Cons</h2>
-    <div class="pros-cons">
-      <div class="pros-box">
-        <h3>✓ Pros</h3>
+    <div class="analysis reveal">
+      <div class="card card-pros">
+        <div class="card-title">🟢 Pros</div>
         <ul>
-          <li>Established the basic concept of a tray-style enclosure</li>
-          <li>USB-C port opening was included in the design</li>
-          <li>Fast print time (under 13 minutes) — good for iteration</li>
-          <li>Low material cost at $0.09</li>
+          <li>Fast print time — only 12m 57s</li>
+          <li>Low filament cost — $0.09</li>
+          <li>Established the basic outer dimensions</li>
+          <li>Taught me to actually measure the board</li>
         </ul>
       </div>
-      <div class="cons-box">
-        <h3>✗ Cons / Problems</h3>
+      <div class="card card-cons">
+        <div class="card-title">🔴 Issues identified</div>
         <ul>
-          <li>Printed in the wrong orientation — weakened walls</li>
-          <li>Internal dimensions too small — board did not fit</li>
-          <li>Pin slot openings too narrow for GPIO pins to pass through</li>
-          <li>Walls and locking clips too thin — one wall snapped off during removal</li>
-          <li>No ventilation holes included in the design</li>
-          <li>No lid or closure mechanism</li>
+          <li>Wrong print orientation</li>
+          <li>Walls too thin and snapped on handling</li>
+          <li>Board didn't fit — internal dimensions wrong</li>
+          <li>GPIO pin slots too small for header pins</li>
+          <li>No ventilation openings</li>
+          <li>No lid design at all</li>
+        </ul>
+      </div>
+      <div class="card card-improve">
+        <div class="card-title">🛠️ Planned improvements for P2</div>
+        <ul>
+          <li>Two-piece design with a removable lid</li>
+          <li>Increased internal tolerance for board fit</li>
+          <li>Better print orientation</li>
+          <li>Begin button-hole positioning study</li>
         </ul>
       </div>
     </div>
 
-    <!-- PLANNED IMPROVEMENTS -->
-    <h2 class="section-title">Planned Improvements for Prototype 2</h2>
-    <div class="improvements-box">
-      <h3>→ Changes to implement</h3>
-      <ul>
-        <li>Increase overall internal dimensions to fit the ESP32-C3 Zero board correctly</li>
-        <li>Thicken the walls and structural elements to prevent snapping</li>
-        <li>Correct the pin slot size so GPIO pins can pass through freely</li>
-        <li>Print in the correct orientation for better structural integrity</li>
-        <li>Begin designing a lid or closure mechanism</li>
-        <li>Add ventilation holes or slots for airflow</li>
-      </ul>
+    <div class="terminal reveal" style="max-width: 640px;">
+      <div class="terminal-bar">
+        <span class="dot-r"></span><span class="dot-r"></span><span class="dot-r"></span>
+        <span class="term-title">~/prototypes/p1/notes.txt</span>
+      </div>
+      <div class="terminal-body">
+        <div class="term-prompt">tail -n 4 lessons.log</div>
+        <div class="term-output">[26/05] Wall thickness matters more than you think.</div>
+        <div class="term-output">[26/05] Tolerance is non-negotiable on FDM.</div>
+        <div class="term-output">[26/05] Print orientation = structural integrity.</div>
+        <div class="term-output">[26/05] Always design the lid first, not last.<span class="cursor-blink"></span></div>
+      </div>
     </div>
 
-  </main>
+    <div style="margin-top: var(--s-4); display: flex; gap: var(--s-2); flex-wrap: wrap;">
+      <a href="index.html" class="btn btn-ghost">← Back to home</a>
+      <a href="prototype2.html" class="btn btn-primary">Next: Prototype 2 <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    100376427 · Hasan Kandemir · ESP32-C3 Zero Protective Case · ICT30120 Certificate III in Information Technology
-  </footer>
+</main>
 
-  <script>
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').classList.add('open');
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-    }
-  </script>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-meta">
+      <strong>Hasan Kandemir</strong> · ID: 100376427<br>
+      <strong>Course:</strong> ICT30120 — ICTWEB304<br>
+      <strong>Project:</strong> ESP32-C3 Zero Protective Case
+    </div>
+    <div class="footer-meta" style="text-align: right;">
+      Built with <strong>HTML + CSS</strong>, no frameworks.<br>
+      <strong>2026</strong> · Made in Melbourne 🇦🇺<br>
+      <strong>Status:</strong> <span style="color:var(--accent-soft)">P1 documented</span>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Hasan Kandemir — Submitted for assessment under ICTWEB304</div>
+</footer>
 
-</body>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">×</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open);
+});
+const progress = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.transform = `scaleX(${window.scrollY / h})`;
+}, { passive: true });
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(r => io.observe(r));
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+document.querySelectorAll('.photo-item img').forEach(img => {
+  img.addEventListener('click', () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); });
+});
+function closeLightbox() { lightbox.classList.remove('open'); }
+lightbox.addEventListener('click', closeLightbox);
+lightboxClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07a9d261a37c548',t:'MTc4MDc4MjQyOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
