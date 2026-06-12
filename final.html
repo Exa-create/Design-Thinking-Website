@@ -22,7 +22,7 @@
 <nav class="nav" aria-label="Primary">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="Home — Hasan Kandemir">
-      <span class="logo-mark" aria-hidden="true">H</span>
+      <img src="images/logo.png" class="logo-img" alt="Hasan Kandemir — ESP32-C3 Case project logo, click to return home" width="44" height="44" />
       <span class="logo-text"><span>kandemir.dev</span><small>esp32-c3 case project</small></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -66,10 +66,10 @@
     <div class="proto-layout">
       <div class="reveal">
         <div class="photo-grid" style="grid-template-columns: repeat(2, 1fr); margin: 0;">
-          <div class="photo-item"><img src="images/f1_1.JPG" alt="Final design — closed case from the top showing honeycomb ventilation holes and the two yellow controller-style buttons, with wall-mount tabs on each side" /></div>
-          <div class="photo-item"><img src="images/f1_2.JPG" alt="Final design — case opened on its hinge showing the ESP32-C3 Zero board seated securely with the USB-C port and reset/boot buttons accessible" /></div>
-          <div class="photo-item"><img src="images/f1_3.JPG" alt="Final design — underside view showing the GPIO pins protruding cleanly through the pin slots" /></div>
-          <div class="photo-item"><img src="images/f1_4.JPG" alt="Final design — front view with the lid open and board mounted, USB-C port accessible from the front" /></div>
+          <div class="photo-item"><img src="images/f1_1_thumb.jpg" data-full="images/f1_1.JPG" alt="Final design — closed case from the top showing honeycomb ventilation holes and the two yellow controller-style buttons, with wall-mount tabs on each side" loading="lazy" decoding="async" /></div>
+          <div class="photo-item"><img src="images/f1_2_thumb.jpg" data-full="images/f1_2.JPG" alt="Final design — case opened on its hinge showing the ESP32-C3 Zero board seated securely with the USB-C port and reset/boot buttons accessible" loading="lazy" decoding="async" /></div>
+          <div class="photo-item"><img src="images/f1_3_thumb.jpg" data-full="images/f1_3.JPG" alt="Final design — underside view showing the GPIO pins protruding cleanly through the pin slots" loading="lazy" decoding="async" /></div>
+          <div class="photo-item"><img src="images/f1_4_thumb.jpg" data-full="images/f1_4.JPG" alt="Final design — front view with the lid open and board mounted, USB-C port accessible from the front" loading="lazy" decoding="async" /></div>
         </div>
       </div>
 
@@ -266,7 +266,7 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 document.querySelectorAll('.photo-item img').forEach(img => {
-  img.addEventListener('click', () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); });
+  img.addEventListener('click', () => { lightboxImg.src = img.getAttribute('data-full') || img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); });
 });
 function closeLightbox() { lightbox.classList.remove('open'); }
 lightbox.addEventListener('click', closeLightbox);

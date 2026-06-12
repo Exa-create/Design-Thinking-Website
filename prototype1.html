@@ -22,7 +22,7 @@
 <nav class="nav" aria-label="Primary">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="Home — Hasan Kandemir">
-      <span class="logo-mark" aria-hidden="true">H</span>
+      <img src="images/logo.png" class="logo-img" alt="Hasan Kandemir — ESP32-C3 Case project logo, click to return home" width="44" height="44" />
       <span class="logo-text"><span>kandemir.dev</span><small>esp32-c3 case project</small></span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -68,10 +68,10 @@
       <!-- Photos -->
       <div class="reveal">
         <div class="photo-grid" style="grid-template-columns: repeat(2, 1fr); margin: 0;">
-          <div class="photo-item"><img src="images/p1_1.JPG" alt="Prototype 1 — first view of the failed print" /></div>
-          <div class="photo-item"><img src="images/p1_2.JPG" alt="Prototype 1 — second angle showing wall failure" /></div>
-          <div class="photo-item"><img src="images/p1_3.JPG" alt="Prototype 1 — fitment attempt with ESP32 board" /></div>
-          <div class="photo-item"><img src="images/p1_4.JPG" alt="Prototype 1 — close-up of broken structure" /></div>
+          <div class="photo-item"><img src="images/p1_1_thumb.jpg" data-full="images/p1_1.JPG" alt="Prototype 1 — first view of the failed print" loading="lazy" decoding="async" /></div>
+          <div class="photo-item"><img src="images/p1_2_thumb.jpg" data-full="images/p1_2.JPG" alt="Prototype 1 — second angle showing wall failure" loading="lazy" decoding="async" /></div>
+          <div class="photo-item"><img src="images/p1_3_thumb.jpg" data-full="images/p1_3.JPG" alt="Prototype 1 — fitment attempt with ESP32 board" loading="lazy" decoding="async" /></div>
+          <div class="photo-item"><img src="images/p1_4_thumb.jpg" data-full="images/p1_4.JPG" alt="Prototype 1 — close-up of broken structure" loading="lazy" decoding="async" /></div>
         </div>
       </div>
 
@@ -167,7 +167,7 @@ const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 document.querySelectorAll('.photo-item img').forEach(img => {
-  img.addEventListener('click', () => { lightboxImg.src = img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); });
+  img.addEventListener('click', () => { lightboxImg.src = img.getAttribute('data-full') || img.src; lightboxImg.alt = img.alt; lightbox.classList.add('open'); });
 });
 function closeLightbox() { lightbox.classList.remove('open'); }
 lightbox.addEventListener('click', closeLightbox);
