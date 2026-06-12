@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Final design for the ESP32-C3 Zero Protective Case — coming soon." />
+<meta name="description" content="Final design for the ESP32-C3 Zero Protective Case — selected, printed and passed all testing." />
 <meta name="theme-color" content="#0d1117" />
 <title>Final Design // ESP32-C3 Case Project</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,78 +40,189 @@
 
 <main>
 
-<section class="final-hero">
+<section class="hero" style="min-height: auto; padding-bottom: var(--s-3);">
   <div class="container">
-    <span class="hero-tag" style="margin: 0 auto var(--s-3);"><span class="dot"></span> Final design // in progress</span>
-
-    <div class="coming-soon-mark" aria-hidden="true">
-      <div class="coming-soon-inner">Coming<br>Soon</div>
-    </div>
-
-    <h1 style="font-size: clamp(1.8rem, 4vw, 3rem); max-width: 700px; margin: 0 auto 0.75rem; letter-spacing: -0.02em; line-height: 1.05;">
-      The <span class="gradient">final design</span> is on the print bed.
-    </h1>
-    <p class="lede" style="max-width: 540px; margin: 0 auto var(--s-2); color: var(--text-muted);">
-      Every lesson from P1–P3 applied. Lid recess deepened to clear the chip — documentation lands here when the print is complete.
-    </p>
-
-    <div class="progress-line" aria-label="Project progress: 75%">
-      <div class="progress-fill" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <p class="mono muted" style="font-size: 0.8rem; margin-bottom: var(--s-3);">Project complete: <strong style="color: var(--accent);">75%</strong> · 3 / 4 prototypes done</p>
-
-    <div class="checklist">
-      <li class="done"><span class="check done">✓</span> Prototype 1 — fail documented</li>
-      <li class="done"><span class="check done">✓</span> Prototype 2 — fail documented</li>
-      <li class="done"><span class="check done">✓</span> Prototype 3 — needs-improvement documented</li>
-      <li class="pending"><span class="check pending">·</span> Final design — deepen lid recess</li>
-      <li class="pending"><span class="check pending">·</span> Final design — print + photos</li>
-      <li class="pending"><span class="check pending">·</span> Final design — full write-up</li>
-    </div>
-
-    <div style="margin-top: var(--s-3); display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-      <a href="prototype3.html" class="btn btn-ghost">← Previous: P3</a>
-      <a href="index.html" class="btn btn-primary">Back to home <span class="arrow">→</span></a>
+    <div class="hero-content">
+      <span class="hero-tag"><span class="dot" style="background: var(--pass);"></span> Final design // PASS</span>
+      <h1>It <span class="gradient">works.</span></h1>
+      <p class="lede">
+        After testing every prototype as a team, we selected Jeremy Price's Prototype 3 as the final design. Board fits snug, lid closes flush, vents present, ports and buttons accessible — wall-mountable, with a removable lid and controller-style buttons. Printed and passed all criteria.
+      </p>
+      <div class="stat-pills">
+        <div class="stat-pill"><span class="label">Date</span><span class="value">09/06/2026</span></div>
+        <div class="stat-pill"><span class="label">Print time</span><span class="value">34m 21s</span></div>
+        <div class="stat-pill"><span class="label">Material</span><span class="value">9.03g</span></div>
+        <div class="stat-pill"><span class="label">Cost</span><span class="value">$0.23</span></div>
+        <div class="stat-pill"><span class="label">Result</span><span class="badge badge-pass">Pass</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section-tight">
+<section style="padding-top: 0;">
   <div class="container">
-    <div class="section-head reveal center" style="margin: 0 auto var(--s-3);">
-      <span class="section-eyebrow">what's coming</span>
-      <h2 class="section-title">What the final page will include</h2>
+
+    <!-- PHOTOS + DESCRIPTION -->
+    <div class="proto-layout">
+      <div class="reveal">
+        <div class="photo-grid" style="grid-template-columns: repeat(2, 1fr); margin: 0;">
+          <div class="photo-item"><img src="images/f1_1.JPG" alt="Final design — closed case from the top showing honeycomb ventilation holes and the two yellow controller-style buttons, with wall-mount tabs on each side" /></div>
+          <div class="photo-item"><img src="images/f1_2.JPG" alt="Final design — case opened on its hinge showing the ESP32-C3 Zero board seated securely with the USB-C port and reset/boot buttons accessible" /></div>
+          <div class="photo-item"><img src="images/f1_3.JPG" alt="Final design — underside view showing the GPIO pins protruding cleanly through the pin slots" /></div>
+          <div class="photo-item"><img src="images/f1_4.JPG" alt="Final design — front view with the lid open and board mounted, USB-C port accessible from the front" /></div>
+        </div>
+      </div>
+
+      <div class="desc reveal" style="margin: 0;">
+        <h3>The team's final design — secure, vented, professional.</h3>
+        <p>Our team selected Jeremy Price's Prototype 3 as the final design after testing and evaluating all available prototypes. It offered the best combination of functionality, usability, security and ease of assembly.</p>
+        <p>The ESP32-C3 Zero fits securely and snugly inside, the top section removes easily for access to the chip, and the bottom pin section is enclosed with room for cable management while keeping connections protected. The controller-style buttons give a realistic, responsive feel.</p>
+        <p><strong>Why this one:</strong> while my own prototype showed promise, Jeremy's design was already completed and ready for implementation, making it the most practical choice within the project timeframe — with the added benefit of being wall-mountable. I'm very happy with the outcome and proud of what our team built together.</p>
+      </div>
     </div>
 
-    <div class="analysis reveal" style="max-width: 980px; margin: 0 auto;">
-      <div class="card card-improve">
-        <div class="card-title">📐 Specs + measurements</div>
+    <!-- IMPROVEMENTS / REASONS / KEY FEATURES (CARDS) -->
+    <div class="analysis reveal">
+      <div class="card card-pros">
+        <div class="card-title">🟢 Key features</div>
         <ul>
-          <li>Final external + internal dimensions</li>
-          <li>Wall thickness verification</li>
-          <li>Tolerance margins</li>
-          <li>Lid recess depth (the fix)</li>
+          <li>Wall-mountable — secure install anywhere</li>
+          <li>Removable top for easy ESP chip access</li>
+          <li>Board fits securely and snugly</li>
+          <li>Controller-style buttons — responsive feel</li>
+          <li>Ventilation holes for airflow</li>
+          <li>USB-C, GPIO pins + buttons all accessible</li>
         </ul>
       </div>
       <div class="card card-improve">
-        <div class="card-title">📸 Photo documentation</div>
+        <div class="card-title">🛠️ Why it was selected</div>
         <ul>
-          <li>Assembled case, all angles</li>
-          <li>Board inserted</li>
-          <li>Lid closed flush</li>
-          <li>Side-by-side vs P3</li>
+          <li>Best combination of function, usability + security</li>
+          <li>Already completed and ready within the deadline</li>
+          <li>Secure cable management in the pin section</li>
+          <li>Exposed pins accessible but safely protected</li>
+          <li>Practical, secure and professionally finished</li>
         </ul>
       </div>
-      <div class="card card-improve">
-        <div class="card-title">🧪 Final test results</div>
+      <div class="card card-cons">
+        <div class="card-title">📝 Notes</div>
         <ul>
-          <li>Drop test</li>
-          <li>Heat / ventilation check</li>
-          <li>Port access verification</li>
-          <li>Final pass/fail criteria</li>
+          <li>Chosen over my own prototype mainly on readiness</li>
+          <li>My prototype remains an option to develop further</li>
+          <li>Carried forward every lesson from P1–P3</li>
         </ul>
       </div>
     </div>
+
+    <!-- IMPROVEMENT LOG -->
+    <div class="section-head reveal" style="margin-top: var(--s-3);">
+      <span class="section-eyebrow">how it evolved</span>
+      <h2 class="section-title">Improvement log — P1 → Final</h2>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare" aria-label="Improvement log">
+        <thead>
+          <tr>
+            <th scope="col">Version</th>
+            <th scope="col">Issue Found</th>
+            <th scope="col">Likely Cause</th>
+            <th scope="col">Change Made</th>
+            <th scope="col">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Prototype 1</td>
+            <td>Walls too thin and snapped. Wrong print orientation. Board didn't fit. Pin slots too small. No ventilation. Locking clips too fragile.</td>
+            <td>Measurements not verified against the physical board. Wrong orientation in slicer. Wall thickness too low.</td>
+            <td>Increased internal dimensions, thickened walls, corrected orientation, enlarged pin slots, added ventilation, redesigned lid connection.</td>
+            <td>P2 produced with stronger walls, correct orientation, larger pin slots and ventilation.</td>
+          </tr>
+          <tr>
+            <td>Prototype 2</td>
+            <td>Bottom half too tight (needed sanding). Leg-and-hole lid failed (both parts same size). Button holes misplaced. Lid wouldn't close.</td>
+            <td>Tolerances not accounted for. Leg and hole at same size — no room to connect. Button positions unchecked.</td>
+            <td>Adjusted dimensions with correct tolerances. Made leg smaller than hole. Corrected button positions. Hollowed top half further.</td>
+            <td>P3 bottom half fit perfectly. Leg-and-hole worked. Pins protruded correctly. Only top recess needed more depth.</td>
+          </tr>
+          <tr>
+            <td>Final Design</td>
+            <td>P3 top interior recess needed more clearance to fully close. A final design had to be chosen within the timeframe.</td>
+            <td>Internal recess not deep enough, contacting the top of the board. Deadlines limited further redesign.</td>
+            <td>Team reviewed all prototypes and selected Jeremy Price's Prototype 3 — secure fit, ventilation, accessible buttons/pins, removable lid, wall-mounting, strong enclosure.</td>
+            <td>Met all project requirements. Board fits securely, ports/pins/buttons accessible, ventilation included, durable and professionally finished.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- REQUIREMENTS CHECKLIST -->
+    <div class="section-head reveal" style="margin-top: var(--s-3);">
+      <span class="section-eyebrow">brief check</span>
+      <h2 class="section-title">Product requirements checklist</h2>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare" aria-label="Requirements checklist">
+        <thead>
+          <tr>
+            <th scope="col">Requirement</th>
+            <th scope="col">Achieved?</th>
+            <th scope="col">Evidence / Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>ESP32-C3 Zero fits correctly</td><td><span class="badge badge-pass">Yes</span></td><td>Board fits securely with correct clearance.</td></tr>
+          <tr><td>Case protects the board during normal use</td><td><span class="badge badge-pass">Yes</span></td><td>Enclosure fully surrounds and protects the board.</td></tr>
+          <tr><td>The USB port is accessible</td><td><span class="badge badge-pass">Yes</span></td><td>USB-C port can be accessed without removing the board.</td></tr>
+          <tr><td>Important pins are accessible</td><td><span class="badge badge-pass">Yes</span></td><td>GPIO pins remain accessible through designed openings.</td></tr>
+          <tr><td>Buttons are accessible</td><td><span class="badge badge-pass">Yes</span></td><td>Button cut-outs allow normal operation.</td></tr>
+          <tr><td>Ventilation holes are included</td><td><span class="badge badge-pass">Yes</span></td><td>Ventilation holes assist airflow around the ESP32-C3 Zero.</td></tr>
+          <tr><td>Vent design is neat and not fragile</td><td><span class="badge badge-pass">Yes</span></td><td>Vent openings are cleanly designed and strong for classroom handling.</td></tr>
+          <tr><td>Strong enough for classroom handling</td><td><span class="badge badge-pass">Yes</span></td><td>Printed successfully and withstands normal use.</td></tr>
+          <tr><td>Printable using classroom equipment</td><td><span class="badge badge-pass">Yes</span></td><td>Printed on classroom 3D printer without issues.</td></tr>
+          <tr><td>Looks functional and professional</td><td><span class="badge badge-pass">Yes</span></td><td>Clean print and finished appearance.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRINT SUMMARY -->
+    <div class="section-head reveal" style="margin-top: var(--s-3);">
+      <span class="section-eyebrow">the numbers</span>
+      <h2 class="section-title">Print summary — all iterations</h2>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare" aria-label="Print summary">
+        <thead>
+          <tr>
+            <th scope="col">Iteration</th>
+            <th scope="col">Date</th>
+            <th scope="col">Print Time</th>
+            <th scope="col">Material</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Prototype 1</td><td>26/05/2026</td><td>12m 57s</td><td>1.00m · 3.02g</td><td>$0.09</td><td><span class="badge badge-fail">Fail</span></td></tr>
+          <tr><td>Prototype 2</td><td>01/06/2026</td><td>20m 1s</td><td>1.41m · 4.25g</td><td>$0.13</td><td><span class="badge badge-fail">Fail</span></td></tr>
+          <tr><td>Prototype 3</td><td>02/06/2026</td><td>28m 49s</td><td>2.06m · 6.19g</td><td>$0.19</td><td><span class="badge badge-warn">Needs Work</span></td></tr>
+          <tr><td>Final Design</td><td>09/06/2026</td><td>34m 21s</td><td>2.98m · 9.03g</td><td>$0.23</td><td><span class="badge badge-pass">Pass</span></td></tr>
+          <tr><td><strong>Totals</strong></td><td>—</td><td><strong>1h 36m 8s</strong></td><td><strong>22.49g</strong></td><td><strong>$0.64</strong></td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="desc reveal" style="margin-top: var(--s-3);">
+      <h3>Conclusion</h3>
+      <p>The final ESP32-C3 Zero case meets all of the project brief requirements. The board fits securely with correct clearance, the USB-C port and GPIO pins remain accessible, the buttons operate with a comfortable controller-like feel, and ventilation holes assist airflow around the chip. The enclosure is strong enough for classroom handling, printable on classroom equipment, and finished to a professional standard. Selecting Jeremy Price's Prototype 3 allowed the team to deliver a practical, secure and user-friendly product within the project timeframe, while leaving room to develop my own prototype further in the future. I am very happy with the final outcome and proud of the work our team completed together.</p>
+    </div>
+
+    <div style="margin-top: var(--s-3); display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      <a href="prototype3.html" class="btn btn-ghost">← Previous: P3</a>
+      <a href="index.html" class="btn btn-primary">Back to home <span class="arrow">→</span></a>
+    </div>
+
   </div>
 </section>
 
@@ -127,7 +238,7 @@
     <div class="footer-meta" style="text-align: right;">
       Built with <strong>HTML + CSS</strong>, no frameworks.<br>
       <strong>2026</strong> · Made in Melbourne 🇦🇺<br>
-      <strong>Status:</strong> <span style="color:var(--accent)">final pending</span>
+      <strong>Status:</strong> <span style="color:var(--accent)">final complete · passed</span>
     </div>
   </div>
   <div class="footer-bottom">© 2026 Hasan Kandemir — Submitted under ICTWEB304</div>
@@ -162,6 +273,5 @@ lightbox.addEventListener('click', closeLightbox);
 lightboxClose.addEventListener('click', closeLightbox);
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a07abb4beff53682',t:'MTc4MDc4MzY2Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
